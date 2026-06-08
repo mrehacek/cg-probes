@@ -1,0 +1,28 @@
+[project]
+name = "cg-probes"
+version = "0.1.0"
+description = "CG-Probes: recovering guardrail directions (MU/PU/Topic-Sensitivity) from Czech oncology patient-query embeddings."
+readme = "README.md"
+requires-python = ">=3.12,<3.14"   # spacy 3.8 has no cp314 wheel; pin below 3.14
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.26",
+    "pydantic>=2.0",
+    "openai>=2.30.0",
+    "tenacity>=8.0",
+    "python-dotenv>=1.0",
+    "pyarrow>=15.0",
+    "httpx>=0.27",         # golden/pipeline_v2/07_upload.py (non-functional in release)
+    # P1 (search-logs-bertopic)
+    "bertopic>=0.16",
+    "hdbscan>=0.8",
+    "umap-learn>=0.5",
+    "scikit-learn>=1.4",
+    "matplotlib>=3.8",         # benchmark/_viz.py, figures.py (report + figures)
+    "rapidfuzz>=3.0",          # filters.EmployeeFilter fuzzy match
+    "spacy>=3.7",              # filters.SpacyPersonFilter (NER)
+    "python-calamine>=0.2",    # internal-search XLS reader
+]
+
+[tool.uv]
+package = false

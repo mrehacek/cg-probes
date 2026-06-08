@@ -1,0 +1,9 @@
+{
+  "embedder": "qwen8b",
+  "mode": "per_axis",
+  "axis": "PU",
+  "dim": 4096,
+  "instruction": "Classify the psychological urgency of the given Czech oncology patient query: the level of emotional distress, existential concern, or suicidal intent expressed, ignoring the somatic medical content.",
+  "n_texts": 3558,
+  "wall_sec": 74.3
+}

@@ -1,0 +1,197 @@
+{
+  "human_only_exclude": "llm_reference,admin",
+  "axes": {
+    "MU": {
+      "alpha_human": 0.7795241749808135,
+      "alpha_human_units": 200,
+      "alpha_human_raters": [
+        "annotator_A",
+        "annotator_B"
+      ],
+      "alpha_with_llm": 0.8325027713141522,
+      "alpha_with_llm_units": 200,
+      "alpha_with_llm_raters": [
+        "llm_reference",
+        "annotator_A",
+        "annotator_B"
+      ],
+      "cohen_pairs": [
+        {
+          "a": "annotator_A",
+          "b": "annotator_B",
+          "n": 200,
+          "kappa": 0.6958095138196886,
+          "matrix": [
+            [
+              89,
+              7,
+              2
+            ],
+            [
+              12,
+              9,
+              2
+            ],
+            [
+              5,
+              23,
+              51
+            ]
+          ],
+          "lo": 0,
+          "hi": 2
+        }
+      ]
+    },
+    "PU": {
+      "alpha_human": 0.9579110508848659,
+      "alpha_human_units": 200,
+      "alpha_human_raters": [
+        "annotator_A",
+        "annotator_B"
+      ],
+      "alpha_with_llm": 0.9681019884336426,
+      "alpha_with_llm_units": 200,
+      "alpha_with_llm_raters": [
+        "llm_reference",
+        "annotator_A",
+        "annotator_B"
+      ],
+      "cohen_pairs": [
+        {
+          "a": "annotator_A",
+          "b": "annotator_B",
+          "n": 200,
+          "kappa": 0.925972325038437,
+          "matrix": [
+            [
+              119,
+              3,
+              0
+            ],
+            [
+              0,
+              18,
+              3
+            ],
+            [
+              0,
+              7,
+              50
+            ]
+          ],
+          "lo": 0,
+          "hi": 2
+        }
+      ]
+    },
+    "ET": {
+      "alpha_human": 0.18724537762456916,
+      "alpha_human_units": 200,
+      "alpha_human_raters": [
+        "annotator_A",
+        "annotator_B"
+      ],
+      "alpha_with_llm": 0.4522412781669485,
+      "alpha_with_llm_units": 200,
+      "alpha_with_llm_raters": [
+        "llm_reference",
+        "annotator_A",
+        "annotator_B"
+      ],
+      "cohen_pairs": [
+        {
+          "a": "annotator_A",
+          "b": "annotator_B",
+          "n": 200,
+          "kappa": 0.2491166077738516,
+          "matrix": [
+            [
+              6,
+              0,
+              0
+            ],
+            [
+              1,
+              30,
+              1
+            ],
+            [
+              1,
+              98,
+              63
+            ]
+          ],
+          "lo": 0,
+          "hi": 2
+        }
+      ]
+    }
+  },
+  "human_human_qwk": {
+    "MU": {
+      "qwk": 0.7806950747768877,
+      "raw_agreement": 0.745,
+      "n": 200,
+      "raters": [
+        "annotator_A",
+        "annotator_B"
+      ]
+    },
+    "PU": {
+      "qwk": 0.9578059071729957,
+      "raw_agreement": 0.935,
+      "n": 200,
+      "raters": [
+        "annotator_A",
+        "annotator_B"
+      ]
+    },
+    "ET": {
+      "qwk": 0.318658280922432,
+      "raw_agreement": 0.495,
+      "n": 200,
+      "raters": [
+        "annotator_A",
+        "annotator_B"
+      ]
+    }
+  },
+  "et_error_analysis": {
+    "raters": [
+      "annotator_B",
+      "annotator_A"
+    ],
+    "over_rater": "annotator_A",
+    "one_cell_ET1_to_ET2_n": 98,
+    "all_one_dir_disagreements_n": 100,
+    "share_MU_ge1_in_cell": 0.8469387755102041,
+    "share_MU_ge1_elsewhere": 0.19607843137254902,
+    "share_MU_ge1_overall": 0.515,
+    "qwk_raw": 0.318658280922432,
+    "qwk_after_somatic_reconcile": 0.8191526007578367,
+    "interpretation": "ET disagreement is a single codebook underspecification: one rater coded somatic-urgent items as high emotional load (ET2) where the codebook intended ET1 (ET2 = long-term emotional/existential load). Reconciling it brings ET agreement on par with MU/PU."
+  },
+  "provenance": {
+    "MU": {
+      "adjudicated": 60,
+      "agreement": 140,
+      "unresolved": 0,
+      "n_raters": 2
+    },
+    "PU": {
+      "adjudicated": 15,
+      "agreement": 185,
+      "unresolved": 0,
+      "n_raters": 2
+    },
+    "ET": {
+      "adjudicated": 104,
+      "agreement": 95,
+      "unresolved": 1,
+      "n_raters": 2
+    }
+  },
+  "n_items": 200,
+  "n_synthetic": 110
+}

@@ -1,0 +1,83 @@
+# NEEDS-MANUAL-PII-REVIEW: author must hand-clear every row before any push.
+# A small filtered subsample of the (withheld) search-log corpus, for demoing P1 only.
+query,clicks
+cytostatika co to je,200
+glioblastom příběhy,200
+oncorin p53 recenze,200
+onkologický pacient v remisi,200
+magnetická rezonance bez čekání [město],199
+mnohočetný myelom příznaky,199
+rakovina střev,199
+klinika radiační onkologie,198
+trazodon účinky,198
+imunoterapie rakovina,198
+onko markery,198
+pet/ct cena,198
+trombocyty hodnoty,198
+Léčba bolesti,197
+rakovina čelistního kloubu příznaky,196
+rakovina slinivky prognóza,196
+vyšetření močového měchýře,196
+prevence rakoviny slinivky,196
+hodgkinův lymfom krevní obraz,196
+dají se vyléčit metastázy,196
+rakovina oka,195
+ambulance preventivní onkologie,194
+nádor konečníku,194
+primární myelofibróza,194
+umírání metastázy na mozku,194
+rakovina krve,194
+Nukleární medicína,194
+t lymfocyty,193
+X mamograf,193
+[centrum] ultrazvuk prsou,192
+folikulární lymfom,192
+screening karcinomu prostaty,192
+rakovina krev z nosu,192
+nador ledvin,191
+lékárna [centrum],191
+schmorlovy uzly,190
+bezbolestné vyšetření žaludku,190
+metastáze v kostech,190
+jak se chovat po ozařování,190
+sezaryho syndrom,189
+benigní a maligní nádory zevních rodidel a pochvy,189
+gabriel jelenek,189
+onkologický pacient,189
+hazard ratio,189
+nádor jater,188
+druhý názor onkologie,188
+hormonální léčba karcinomu prostaty,188
+rakovina mízních uzlin,188
+nádor prostaty,187
+papilární karcinom štítné žlázy,187
+picc kateter,187
+screening prostaty,187
+nádory jater,187
+rakovina štítné žlázy prognóza,186
+b lymfom,185
+biochemická recidiva karcinomu prostaty,185
+sono prsu,185
+b-lymfom prognóza,184
+okultní krvácení,184
+preventivní ultrazvuk prsou [město],184
+nádor na slinivce,184
+vyšetření na rakovinu,183
+remise rakoviny,183
+4 stadium rakoviny plic,183
+biopsie slinivky,183
+preventivní onkologická prohlídka cena,182
+paclitaxel a vlasy,182
+tnm klasifikace nádorů,182
+radiojod vedlejší účinky,182
+chemo 4x ac 12x paclitaxel,182
+nádory plic,182
+cytostatika tablety,181
+rakovina pochvy prognóza,181
+kostní dřeň,181
+incidence vs prevalence,181
+maligní lymfom,181
+příznaky rakoviny mozku,180
+cystoskopie u mužů,180
+noční bolesti kostí,179
+myeloproliferativní onemocnění léčba,179

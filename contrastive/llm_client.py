@@ -1,0 +1,313 @@
+"""Async OpenAI client wrapper for the contrastive pipeline.
+
+Responsibilities:
+  * Structured-output calls via JSON-schema (no `instructor` dep).
+  * Persistent on-disk response cache keyed on
+    sha256(model + prompt_template_version + payload_json) — re-running the
+    pilot or the full sweep is free if nothing changed.
+  * Tenacity retry on transient errors (rate limits, 5xx, network).
+  * Concurrency cap via asyncio.Semaphore.
+
+`phase` is a string field included in the cache key and printed at log time;
+it lets us separate `label_and_rate`, `synthesize`, `judge` runs in the cache
+directory without prefix collisions.
+"""
+
+from __future__ import annotations
+
+import asyncio
+import hashlib
+import json
+import os
+import time
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
+
+import re
+from urllib.parse import urlparse
+
+from openai import AsyncOpenAI, APIConnectionError, APIStatusError, RateLimitError
+from pydantic import BaseModel
+from tenacity import (
+    retry,
+    retry_if_exception_type,
+    stop_after_attempt,
+    wait_random_exponential,
+)
+
+from contrastive.paths import LLM_RESPONSES as CACHE_ROOT  # load_dotenv() runs in paths.py
+
+# Reasoning-family models accept `reasoning_effort` and reject `temperature`.
+# Everything else takes `temperature` and not `reasoning_effort`.
+_REASONING_MODEL_RE = re.compile(r"^(?:o[13]|gpt-5(?:\.\d)?)", re.IGNORECASE)
+
+
+def is_reasoning_model(name: str) -> bool:
+    return bool(_REASONING_MODEL_RE.match(name))
+
+
+def is_gpt_oss(name: str) -> bool:
+    """gpt-oss-* models (served on vLLM / HFIE) are reasoning models, but the
+    OpenAI-native `reasoning_effort` top-level kwarg is not accepted by the vLLM
+    OpenAI-compat endpoint — it must be passed via `extra_body`. They also still
+    accept `temperature`. The served name may be prefixed (e.g.
+    `openai/gpt-oss-safeguard-20b`), so match on substring."""
+    return "gpt-oss" in name.lower()
+
+
+def _strictify(node):
+    """OpenAI strict json_schema mode requires additionalProperties:false on
+    every object and `required` listing every property. Pydantic v2 emits
+    `required` but not `additionalProperties`, and inlines $defs we must walk."""
+    if isinstance(node, dict):
+        if node.get("type") == "object":
+            node.setdefault("additionalProperties", False)
+            props = node.get("properties") or {}
+            if props:
+                node["required"] = list(props.keys())
+        for v in node.values():
+            _strictify(v)
+    elif isinstance(node, list):
+        for v in node:
+            _strictify(v)
+    return node
+
+
+def _cache_key(
+    model: str,
+    phase: str,
+    template_version: str,
+    payload: dict,
+    *,
+    endpoint_host: str = "",
+) -> str:
+    blob = json.dumps(
+        {
+            "model": model,
+            "endpoint": endpoint_host,  # so responses from different endpoints don't collide
+            "phase": phase,
+            "tpl": template_version,
+            "payload": payload,
+        },
+        sort_keys=True,
+        ensure_ascii=False,
+    )
+    return hashlib.sha256(blob.encode("utf-8")).hexdigest()
+
+
+def _cache_path(key: str) -> Path:
+    CACHE_ROOT.mkdir(parents=True, exist_ok=True)
+    return CACHE_ROOT / f"{key}.json"
+
+
+@dataclass
+class LLMCall:
+    """One call's input + output. Persisted as the cache file body."""
+
+    key: str
+    phase: str
+    model: str
+    template_version: str
+    payload: dict
+    response: dict
+    usage: dict
+
+
+class LLMClient:
+    def __init__(
+        self,
+        model: str = "gpt-5.4",
+        concurrency: int = 8,
+        api_key: str | None = None,
+        base_url: str | None = None,
+        service_tier: str | None = None,
+        request_timeout: float | None = None,
+    ):
+        self.model = model
+        # service_tier="flex" is the half-price async tier (https://…/flex);
+        # raises 429 resource_unavailable on cold capacity, so default timeouts
+        # are bumped to 15 min when it is in use.
+        self.service_tier = service_tier
+        kw: dict[str, object] = {
+            "api_key": api_key or os.environ.get("OPENAI_API_KEY"),
+        }
+        if base_url is not None:
+            kw["base_url"] = base_url
+        if request_timeout is not None:
+            kw["timeout"] = request_timeout
+        elif service_tier == "flex":
+            kw["timeout"] = 900.0
+        self.client = AsyncOpenAI(**kw)
+        self._endpoint_host = urlparse(base_url).hostname if base_url else "api.openai.com"
+        self._is_reasoning = is_reasoning_model(model)
+        self._is_gpt_oss = is_gpt_oss(model)
+        self.sem = asyncio.Semaphore(concurrency)
+
+    @classmethod
+    def for_gemini(cls, *, model: str = "gemini-3.5-flash", concurrency: int = 8) -> "LLMClient":
+        """Build a client pointed at the Gemini OpenAI-compatibility endpoint.
+
+        Used for the P2 *training-side* synthesis so the contrastive grade-2
+        positives are generated by a DIFFERENT model family than the golden-set
+        eval positives (gpt-5.4) — separability that survives this generator
+        mismatch can't be a shared-synthetic-style artifact.
+
+        Requires env var GEMINI_API_KEY. Gemini is not a reasoning-family name
+        here, so calls send `temperature` (use >=0.7 for generation), not
+        `reasoning_effort`.
+        """
+        key = os.environ.get("GEMINI_API_KEY")
+        if not key:
+            raise RuntimeError("GEMINI_API_KEY must be set in .env to use Gemini.")
+        return cls(
+            model=model,
+            concurrency=concurrency,
+            api_key=key,
+            base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
+        )
+
+    @classmethod
+    def for_openai_compatible(cls, *, model: str, concurrency: int = 8) -> "LLMClient":
+        """Build a client pointed at a self-hosted OpenAI-compatible endpoint.
+
+        Requires env vars LLM_API_URL and LLM_API_KEY (loaded by paths.py via
+        dotenv). Suitable for open chat models served via vLLM/TGI/OpenWebUI
+        (e.g. gpt-oss-120b, qwen3.5-122b).
+        """
+        url = os.environ.get("LLM_API_URL")
+        key = os.environ.get("LLM_API_KEY")
+        if not url or not key:
+            raise RuntimeError(
+                "LLM_API_URL and LLM_API_KEY must be set in .env to use this endpoint."
+            )
+        return cls(model=model, concurrency=concurrency, api_key=key, base_url=url)
+
+    @retry(
+        retry=retry_if_exception_type(
+            (RateLimitError, APIConnectionError, APIStatusError, asyncio.TimeoutError)
+        ),
+        stop=stop_after_attempt(12),
+        wait=wait_random_exponential(min=2, max=90),
+        reraise=True,
+    )
+    async def _raw_call(
+        self,
+        *,
+        system: str,
+        user: str,
+        schema: dict,
+        schema_name: str,
+        reasoning_effort: str,
+        temperature: float | None,
+    ) -> tuple[dict, dict]:
+        # Reasoning-family models accept `reasoning_effort` and reject
+        # `temperature`. Non-reasoning models do the opposite. We auto-route
+        # so the caller doesn't have to special-case.
+        kwargs: dict[str, object] = dict(
+            model=self.model,
+            messages=[
+                {"role": "system", "content": system},
+                {"role": "user", "content": user},
+            ],
+            response_format={
+                "type": "json_schema",
+                "json_schema": {
+                    "name": schema_name,
+                    "schema": schema,
+                    "strict": True,
+                },
+            },
+        )
+        if self._is_reasoning:
+            kwargs["reasoning_effort"] = reasoning_effort
+        elif self._is_gpt_oss:
+            # vLLM gpt-oss: reasoning level rides in extra_body, not the top-level
+            # kwarg; the model still honours temperature.
+            kwargs["extra_body"] = {"reasoning_effort": reasoning_effort}
+            if temperature is not None:
+                kwargs["temperature"] = temperature
+        elif temperature is not None:
+            kwargs["temperature"] = temperature
+        if self.service_tier is not None:
+            kwargs["service_tier"] = self.service_tier
+        resp = await self.client.chat.completions.create(**kwargs)
+        content = resp.choices[0].message.content or "{}"
+        usage = {
+            "prompt_tokens": resp.usage.prompt_tokens if resp.usage else 0,
+            "completion_tokens": resp.usage.completion_tokens if resp.usage else 0,
+        }
+        return json.loads(content), usage
+
+    async def call_structured(
+        self,
+        *,
+        phase: str,
+        template_version: str,
+        system: str,
+        user: str,
+        schema_model: type[BaseModel],
+        reasoning_effort: str = "minimal",
+        temperature: float | None = None,
+        cache: bool = True,
+    ) -> tuple[BaseModel, dict]:
+        """Call the model and parse its JSON response into `schema_model`.
+
+        Returns (parsed_model, usage_dict). On cache hit, usage_dict is empty.
+
+        `temperature` is hashed into the cache key when non-None, so a
+        temperature change invalidates only the affected entries (not the
+        whole cache).
+        """
+        schema = _strictify(schema_model.model_json_schema())
+        payload: dict = {"system": system, "user": user, "schema_name": schema_model.__name__}
+        if temperature is not None and not self._is_reasoning:
+            payload["temperature"] = temperature
+        if self._is_reasoning or self._is_gpt_oss:
+            # gpt-oss reasoning_effort affects the output, so it must invalidate
+            # the cache (older gpt-oss runs that silently dropped it get fresh keys).
+            payload["reasoning_effort"] = reasoning_effort
+        # service_tier is intentionally NOT in the cache key — it changes price/SLA,
+        # not the model output, so toggling flex on/off shouldn't invalidate cached
+        # responses.
+        key = _cache_key(
+            self.model, phase, template_version, payload,
+            endpoint_host=self._endpoint_host,
+        )
+        path = _cache_path(key)
+
+        if cache and path.exists():
+            cached = json.loads(path.read_text(encoding="utf-8"))
+            return schema_model.model_validate(cached["response"]), {}
+
+        async with self.sem:
+            t0 = time.perf_counter()
+            response_dict, usage = await self._raw_call(
+                system=system,
+                user=user,
+                schema=schema,
+                schema_name=schema_model.__name__,
+                reasoning_effort=reasoning_effort,
+                temperature=temperature,
+            )
+            # Server round-trip latency (excludes local semaphore queueing, since
+            # the timer is inside the `async with`). Persisted for cost reporting.
+            usage["latency_s"] = round(time.perf_counter() - t0, 4)
+
+        parsed = schema_model.model_validate(response_dict)
+
+        if cache:
+            record = LLMCall(
+                key=key,
+                phase=phase,
+                model=self.model,
+                template_version=template_version,
+                payload=payload,
+                response=response_dict,
+                usage=usage,
+            )
+            path.write_text(
+                json.dumps(record.__dict__, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+        return parsed, usage

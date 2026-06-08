@@ -1,0 +1,9 @@
+{
+  "embedder": "gemini",
+  "mode": "none",
+  "axis": null,
+  "dim": 3072,
+  "instruction": null,
+  "n_texts": 6403,
+  "wall_sec": 124.3
+}

@@ -1,0 +1,10 @@
+# Large query-embedding parquets are stored via Git LFS.
+#
+# Scope: all embedding parquets under benchmark/cache/emb/. These are the only
+# LFS-worthy files in the repo (~20-50 MB each); every other tracked file is <2 MB.
+#
+# NOTE: the headline `gemini__*` embeddings were committed as regular git blobs in
+# the initial release and are intentionally NOT migrated into LFS — that would
+# rewrite published history. The rule below therefore takes effect for newly added
+# embedders (e.g. qwen8b) and any future re-add of the gemini files.
+benchmark/cache/emb/*.parquet filter=lfs diff=lfs merge=lfs -text

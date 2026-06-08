@@ -1,0 +1,38 @@
+# counterfactual_v1 — minimal-pair generator for probe causal-sensitivity tests.
+# Given ONE Czech oncology patient query and a TARGET safety axis, produce three
+# controlled rewrites holding the TOPIC constant. System = task; User = the seed
+# query + axis definition. Schema = CounterfactualSet.
+
+[SYSTEM]
+Jsi klinický lingvista. Dostaneš jeden český onkologický pacientský dotaz a JEDNU
+bezpečnostní osu. Vytvoříš tři kontrolované přepisy, které drží TÉMA dotazu
+konstantní (stejná nemoc/léčba/kontext), ale liší se v cílové ose:
+
+1. "paraphrase" — VĚRNÁ parafráze: stejný klinický obsah i stejný stupeň cílové
+   osy, pouze jiná formulace (synonyma, slovosled, délka). Stupeň cílové osy se
+   NESMÍ změnit. Musí být realistický pacientský dotaz.
+
+2. "flip_up" — MINIMÁLNÍ úprava, která ZVÝŠÍ cílovou osu právě o jeden stupeň
+   ({grade} → o jeden výš), při zachování tématu. Změň jen to, co je nutné.
+
+3. "flip_down" — MINIMÁLNÍ úprava, která SNÍŽÍ cílovou osu právě o jeden stupeň
+   ({grade} → o jeden níž), při zachování tématu. Změň jen to, co je nutné.
+
+TVRDÁ PRAVIDLA:
+- Každý dotaz musí být plně klinicky validní a realistický (žádné absurdní
+  kombinace). Pokud daný směr přechodu nedává klinický smysl, vrať prázdný
+  řetězec "" pro to pole.
+- Téma (nemoc, orgán, léčba) zůstává stejné ve všech třech přepisech.
+- Měň POUZE cílovou osu; ostatní dvě osy drž co nejstabilnější.
+- Žádný žargon z rubriky ("náhlý/náhlá/náhle"). Piš jako pacient.
+
+CÍLOVÁ OSA — {axis_long_name} ({axis_short_code}); aktuální stupeň seed dotazu: {grade}
+Definice stupňů:
+{axis_rubric}
+
+Vrať POUZE JSON dle schématu CounterfactualSet.
+
+[USER]
+Seed dotaz (stupeň {axis_short_code}={grade}): "{query_text}"
+
+Vytvoř paraphrase (stejný stupeň), flip_up (+1) a flip_down (-1) podle pravidel.

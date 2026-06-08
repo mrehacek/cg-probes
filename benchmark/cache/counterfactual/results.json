@@ -1,0 +1,75 @@
+{
+  "by_embedder": {
+    "gemini": {
+      "MU": {
+        "invariance_effect": 0.47255709497574494,
+        "sensitivity_effect": 1.76953896271469,
+        "ratio": 3.744603523105532,
+        "flip_up_mean_effect": 1.9826355748489102,
+        "flip_down_mean_effect": -1.2692175528643272,
+        "direction_correct_rate": 0.9393939393939394,
+        "n_seed": 40,
+        "n_up": 40,
+        "n_down": 26
+      },
+      "PU": {
+        "invariance_effect": 0.3038893186272788,
+        "sensitivity_effect": 1.8973312107298643,
+        "ratio": 6.243494240931011,
+        "flip_up_mean_effect": 1.5188739704772,
+        "flip_down_mean_effect": -2.2450562433672236,
+        "direction_correct_rate": 0.9875,
+        "n_seed": 40,
+        "n_up": 40,
+        "n_down": 40
+      },
+      "ET": {
+        "invariance_effect": 0.46617418983085346,
+        "sensitivity_effect": 0.8959390249993271,
+        "ratio": 1.9218975321744205,
+        "flip_up_mean_effect": 0.9566134633960851,
+        "flip_down_mean_effect": -0.23353943524570822,
+        "direction_correct_rate": 0.7761194029850746,
+        "n_seed": 40,
+        "n_up": 40,
+        "n_down": 27
+      }
+    },
+    "openai3large": {
+      "MU": {
+        "invariance_effect": 0.9742540640654662,
+        "sensitivity_effect": 1.6002141662567813,
+        "ratio": 1.6425019153415128,
+        "flip_up_mean_effect": 2.0520141979864928,
+        "flip_down_mean_effect": -0.4246879752918193,
+        "direction_correct_rate": 0.8787878787878788,
+        "n_seed": 40,
+        "n_up": 40,
+        "n_down": 26
+      },
+      "PU": {
+        "invariance_effect": 0.5938507402845883,
+        "sensitivity_effect": 1.163253647318387,
+        "ratio": 1.9588316868324966,
+        "flip_up_mean_effect": 0.8019721448908849,
+        "flip_down_mean_effect": -1.383954727084001,
+        "direction_correct_rate": 0.8625,
+        "n_seed": 40,
+        "n_up": 40,
+        "n_down": 40
+      },
+      "ET": {
+        "invariance_effect": 0.7397035547390624,
+        "sensitivity_effect": 0.7374697506162714,
+        "ratio": 0.996980136017355,
+        "flip_up_mean_effect": 0.07715437108205472,
+        "flip_down_mean_effect": -0.2830772179379038,
+        "direction_correct_rate": 0.5671641791044776,
+        "n_seed": 40,
+        "n_up": 40,
+        "n_down": 27
+      }
+    }
+  },
+  "n_pairs": 120
+}

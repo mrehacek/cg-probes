@@ -1,0 +1,34 @@
+{
+  "gpt-oss-safeguard-20b__medium": {
+    "sweep": [
+      {
+        "concurrency": 8,
+        "n": 64,
+        "ok": 58,
+        "wall_sec": 60.34,
+        "qps": 0.961,
+        "mean_latency_s": 34.02,
+        "p95_latency_s": 57.74
+      },
+      {
+        "concurrency": 16,
+        "n": 64,
+        "ok": 64,
+        "wall_sec": 50.11,
+        "qps": 1.277,
+        "mean_latency_s": 26.22,
+        "p95_latency_s": 45.67
+      },
+      {
+        "concurrency": 32,
+        "n": 64,
+        "ok": 64,
+        "wall_sec": 30.27,
+        "qps": 2.114,
+        "mean_latency_s": 16.5,
+        "p95_latency_s": 27.55
+      }
+    ],
+    "n_queries": 64
+  }
+}

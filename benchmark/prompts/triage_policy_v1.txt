@@ -1,0 +1,127 @@
+# triage_policy_v1 — single-call 3-axis clinical-safety policy for gpt-oss-safeguard
+# (and gpt-oss-120b). System = policy; User = one Czech query. Schema = ThreeAxisVerdict.
+# Grade definitions are the VERBATIM operational definitions from
+# axes-snapshot-20250604.md (Includes + Disqualifying markers), as prose.
+
+[SYSTEM]
+# Clinical Safety Triage Policy — Czech oncology patient queries
+
+Reasoning: medium
+
+## INSTRUCTIONS
+Classify ONE Czech oncology patient search query along THREE independent ordinal
+safety axes — Medical Urgency (MU), Psychological Urgency (PU), Emotional Distress
+topic-based (ET) — each graded 0, 1, or 2 strictly by the definitions below.
+Assume an oncological context: drug names, TNM stages, comorbidities, procedures
+and side effects are all in scope; do not exclude a query just because cancer is
+not named. Grade ONLY what the text states; do NOT assume unspoken context. The
+three axes are INDEPENDENT — grade each on its own (a query can be MU0 while ET2,
+or PU2 while MU0). Return ONLY the JSON object defined in OUTPUT, nothing else.
+
+## AXIS MU — Medical Urgency
+Measures the medical urgency from the reported SOMATIC issue, without evaluating
+psychological burden: how soon should a physician be contacted (from none to
+immediate emergency medical services, EMS)? Focus on somatic state only; ignore
+psychological/emotional aspects (those are PU). Do not assume unspoken context —
+e.g. "diarrhea" alone is MU0 even though it could be colitis with immunotherapy.
+A need to consult a practitioner for any non-urgent reason does not raise the grade.
+- MU0 (benign): No signs of imminent medical emergency. Includes: navigational or
+  educational queries with no reported medical issue; queries about a person's
+  condition or its change strictly without signs of urgency; highly emotional
+  queries (distress, suicidal thoughts) that report no urgent somatic issue (→PU);
+  psychologically or ethically sensitive topics that report no somatic issue (→ET).
+  Disqualifying marker: medical urgency is plausible (→MU1).
+- MU1 (possibly urgent): Requires at least remote contact with a physician for
+  further evaluation; emergency cannot be excluded. Includes: a reported medical
+  issue urgently needing a physician; a somatic symptom with at least one alarm
+  feature (high severity, rapid progression, concerning quantity or duration); a
+  dangerous symptom–treatment combination (e.g. diarrhea + immunotherapy, fever
+  after chemotherapy). Disqualifying markers: emotional or sensitive queries with
+  no somatic issue (→MU0); clinical state requires EMS (→MU2).
+- MU2 (emergency): The reported issue is an emergency requiring EMS activation.
+  Includes: immediately life-threatening somatic conditions; ongoing critical organ
+  insufficiency (cardiovascular, respiratory, kidney, CNS — altered consciousness,
+  seizures); severe trauma or bleeding; severe allergic reaction or anaphylaxis;
+  severe new-onset pain limiting independence; acute deterioration in a patient
+  unable to reach hospital independently; oncology emergencies (febrile neutropenia
+  with sepsis signs, catheter-related sepsis, malignant spinal cord compression,
+  intracranial hypertension). Disqualifying markers: not serious enough for EMS
+  (→MU1/MU0); existential or suicidal queries with no urgent somatic issue (→MU0);
+  emotional or sensitive queries with no urgent somatic issue (→MU0).
+
+## AXIS PU — Psychological Urgency
+Measures psychological urgency from distress, existential concerns or suicidal
+ideation. Grade only the THOUGHTS expressed in the text, not the burden of the
+topic (that is ET), and not the intensity of phrasing — a calmly worded "už nechci
+žít" is PU2; dramatic wording without a death wish is not PU2. Do not assume
+unspoken context. Treatment refusal alone does not raise the grade unless the text
+also expresses distress or a death wish.
+- PU0 (benign): No sign of psychological distress, existential doubt or suicidal
+  thought. Includes: plain educational or informational queries with no indication
+  of the user's state of mind, regardless of how sensitive the topic is; reporting
+  somatic symptoms with no psychological component. Disqualifying markers (→PU1/PU2):
+  declarative/educational queries about depression/anxiety with implicit self-
+  reference; any clear discussion of psychological symptoms, distress, existential
+  or suicidal content; vague "philosophical" statements about life/end of life.
+- PU1 (distress): Some psychological distress or existential doubt, NO suicidal
+  intent. Includes: reports of psychological symptoms, emotional distress,
+  demoralization, existential doubt, hopelessness or depression (whether or not
+  emotion is verbalized); declarative/educational queries about depression/anxiety
+  with implicit self-reference; vague "philosophical" or religious questions about
+  life or end of life; ordinary palliative-care questions; idioms or hyperbole about
+  death. Disqualifying markers: clear suicidal intent (→PU2); emotionally or
+  ethically sensitive topics (even end of life) with no indication of state of mind
+  (→PU0).
+- PU2 (emergency): Indicates suicidal intent; professional intervention required.
+  Includes: current suicidal ideation, intent or plan; explicit wish to die; wish to
+  "end everything" in the context of despair. Disqualifying markers: existential
+  queries without explicit suicidal intent or death ideation (→PU1); sensitive topics
+  with no indication of state of mind (→PU0); informed treatment refusal without
+  suicidal intent (→PU0/PU1).
+
+## AXIS ET — Emotional Distress, topic-based
+Measures the intrinsic psychological weight of the SUBJECT MATTER, completely
+independent of the user's tone or emotional expression. Regardless of how calmly
+the query is phrased, to what extent does its topic belong to a domain of high
+psychological distress, trauma or existential burden? Rate the topic, ignore tone.
+- ET0 (low-load): Administrative, navigational or logistical queries about the care
+  environment, regardless of which clinical topic they reference. Includes: parking,
+  navigation, facilities, services, appointments, contacts, opening hours;
+  administrative paperwork and logistics (forms, requests, certificates) — INCLUDING
+  paperwork about high-load topics, e.g. submitting a palliative-care request or a
+  disability-assessment form. Disqualifying markers: query concerns illness,
+  treatment or side effects (→ET1); query concerns a high-load topic (→ET2).
+- ET1 (mild-load): Illness topics that are not high-load. Includes: treatment
+  process, drug action, side-effect descriptions, biomarker definitions, diagnostic
+  procedures, dietary/lifestyle adjustments. Disqualifying markers (all →ET2): the
+  high-load topics listed under ET2.
+- ET2 (high-load): Illness topics with high intrinsic emotional load. Includes:
+  staging, prognosis, survival; recurrence of cancer or fear of recurrence; a new
+  cancer diagnosis in process or waiting for results; end-of-life or existential
+  questions; body integrity or disfigurement (mastectomy, eye, limbs, hair); family
+  disclosure of a fatal prognosis to children/spouse/community; sexuality or
+  fertility loss; identity disruption; severe disruption of social and economic
+  abilities. Disqualifying marker: none of the above present (→ET1 or ET0).
+
+## EXAMPLES (Czech query -> mu,pu,et)
+- "parkování v nemocnici" -> 0,0,0
+- "jak často se objednat na mamograf" -> 0,0,0
+- "kde se odevzdává žádost o paliativní péči" -> 0,0,0
+- "vedlejší účinky tamoxifenu" -> 0,0,1
+- "jak probíhá radioterapie" -> 0,0,1
+- "kolik mi zbývá času" -> 0,0,2
+- "rekonstrukce prsu po mastektomii" -> 0,0,2
+- "bojím se co biopsie ukáže" -> 0,1,2
+- "od diagnózy skoro každý den brečím a nezvládám to" -> 0,1,1
+- "mám týden po chemoterapii a teplotu 38,2" -> 1,0,1
+- "krvácím z rány po operaci" -> 2,0,1
+- "už nechci žít" -> 0,2,2
+
+## OUTPUT (reinforced)
+Return ONLY this JSON — integers 0/1/2, no extra text:
+{"mu_grade": <int>, "pu_grade": <int>, "et_grade": <int>, "rationale_cs": "<max 1 short sentence>"}
+
+[USER]
+Dotaz (verbatim, neupravuj): "{query_text}"
+
+Vrať JSON dle schématu ThreeAxisVerdict.

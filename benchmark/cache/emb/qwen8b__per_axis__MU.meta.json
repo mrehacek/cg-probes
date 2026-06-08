@@ -1,0 +1,9 @@
+{
+  "embedder": "qwen8b",
+  "mode": "per_axis",
+  "axis": "MU",
+  "dim": 4096,
+  "instruction": "Classify the medical urgency of the given Czech oncology patient query: the somatic emergency level, from no urgency to requiring immediate emergency medical services, ignoring psychological aspects.",
+  "n_texts": 3513,
+  "wall_sec": 71.4
+}

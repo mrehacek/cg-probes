@@ -1,0 +1,1172 @@
+[
+  {
+    "embedder": "openai3large",
+    "mode": "generic",
+    "axis": "MU",
+    "dim": 3072,
+    "n_train": 1730,
+    "separability": {
+      "macro_f1": 0.7077702225341017,
+      "n_test": 765,
+      "grade1_landing": {
+        "pred_0": 14,
+        "pred_1": 11,
+        "pred_2": 2,
+        "n": 27
+      },
+      "thresholds": [
+        0.09863874702102149,
+        0.17425485469252025
+      ],
+      "macro_f1_extreme": 0.7039560228913233,
+      "macro_f1_ovr": 0.4739839932194951
+    },
+    "benchmark": {
+      "macro_f1_all": 0.42183830298930913,
+      "macro_f1_real_only": 0.37497264309764305,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "openai3large",
+    "mode": "generic",
+    "axis": "PU",
+    "dim": 3072,
+    "n_train": 1825,
+    "separability": {
+      "macro_f1": 0.8920424865293587,
+      "n_test": 702,
+      "grade1_landing": {
+        "pred_0": 10,
+        "pred_1": 73,
+        "pred_2": 4,
+        "n": 87
+      },
+      "thresholds": [
+        0.0885073339961102,
+        0.3430472513930975
+      ],
+      "macro_f1_extreme": 0.8923002707020928,
+      "macro_f1_ovr": 0.5462345407273033
+    },
+    "benchmark": {
+      "macro_f1_all": 0.7088892483918157,
+      "macro_f1_real_only": 0.6267263427109975,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "openai3large",
+    "mode": "generic",
+    "axis": "ET",
+    "dim": 3072,
+    "n_train": 1319,
+    "separability": {
+      "macro_f1": 0.6553499931104694,
+      "n_test": 413,
+      "grade1_landing": {
+        "pred_0": 19,
+        "pred_1": 132,
+        "pred_2": 33,
+        "n": 184
+      },
+      "thresholds": [
+        -0.061784600677890794,
+        0.13128914659294036
+      ],
+      "macro_f1_extreme": 0.6541455334420615,
+      "macro_f1_ovr": 0.5566906674844688
+    },
+    "benchmark": {
+      "macro_f1_all": 0.664628094739948,
+      "macro_f1_real_only": 0.6088616012888239,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "per_axis",
+    "axis": "MU",
+    "dim": 4096,
+    "n_train": 1730,
+    "separability": {
+      "macro_f1": 0.6879688236401034,
+      "n_test": 765,
+      "grade1_landing": {
+        "pred_0": 9,
+        "pred_1": 15,
+        "pred_2": 3,
+        "n": 27
+      },
+      "thresholds": [
+        0.05720126271530213,
+        0.22482504872856607
+      ],
+      "macro_f1_extreme": 0.6796112275626447,
+      "macro_f1_ovr": 0.6273792099393355
+    },
+    "benchmark": {
+      "macro_f1_all": 0.5824455581003348,
+      "macro_f1_real_only": 0.5379137787708097,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "per_axis",
+    "axis": "PU",
+    "dim": 4096,
+    "n_train": 1825,
+    "separability": {
+      "macro_f1": 0.9143818812279747,
+      "n_test": 702,
+      "grade1_landing": {
+        "pred_0": 16,
+        "pred_1": 71,
+        "pred_2": 0,
+        "n": 87
+      },
+      "thresholds": [
+        -0.12638272555315352,
+        0.31556749993543504
+      ],
+      "macro_f1_extreme": 0.9120975195463742,
+      "macro_f1_ovr": 0.9792502666607401
+    },
+    "benchmark": {
+      "macro_f1_all": 0.7405578970961253,
+      "macro_f1_real_only": 0.71625024556641,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "per_axis",
+    "axis": "ET",
+    "dim": 4096,
+    "n_train": 1319,
+    "separability": {
+      "macro_f1": 0.5806868603710008,
+      "n_test": 413,
+      "grade1_landing": {
+        "pred_0": 20,
+        "pred_1": 127,
+        "pred_2": 37,
+        "n": 184
+      },
+      "thresholds": [
+        -0.15904914082705673,
+        0.09408747794511317
+      ],
+      "macro_f1_extreme": 0.5873737015170055,
+      "macro_f1_ovr": 0.6020420770225533
+    },
+    "benchmark": {
+      "macro_f1_all": 0.5373622862524083,
+      "macro_f1_real_only": 0.5256503870961703,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "per_axis",
+    "axis": "MU",
+    "dim": 3072,
+    "n_train": 1730,
+    "separability": {
+      "macro_f1": 0.7425422188852795,
+      "n_test": 765,
+      "grade1_landing": {
+        "pred_0": 8,
+        "pred_1": 18,
+        "pred_2": 1,
+        "n": 27
+      },
+      "thresholds": [
+        -0.0433898558010262,
+        0.08238588275390032
+      ],
+      "macro_f1_extreme": 0.7439268627802896,
+      "macro_f1_ovr": 0.6351517863802492
+    },
+    "benchmark": {
+      "macro_f1_all": 0.6553943878599204,
+      "macro_f1_real_only": 0.665903237258785,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "per_axis",
+    "axis": "PU",
+    "dim": 3072,
+    "n_train": 1825,
+    "separability": {
+      "macro_f1": 0.960684248641665,
+      "n_test": 702,
+      "grade1_landing": {
+        "pred_0": 10,
+        "pred_1": 77,
+        "pred_2": 0,
+        "n": 87
+      },
+      "thresholds": [
+        -0.005443145761089634,
+        0.1938091527733574
+      ],
+      "macro_f1_extreme": 0.960684248641665,
+      "macro_f1_ovr": 0.9721998008839859
+    },
+    "benchmark": {
+      "macro_f1_all": 0.7146803181761611,
+      "macro_f1_real_only": 0.665151132440852,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "per_axis",
+    "axis": "ET",
+    "dim": 3072,
+    "n_train": 1319,
+    "separability": {
+      "macro_f1": 0.6473734377585503,
+      "n_test": 413,
+      "grade1_landing": {
+        "pred_0": 11,
+        "pred_1": 112,
+        "pred_2": 61,
+        "n": 184
+      },
+      "thresholds": [
+        -0.10658486032305418,
+        0.07109460081173709
+      ],
+      "macro_f1_extreme": 0.6449050736797912,
+      "macro_f1_ovr": 0.6643081492216428
+    },
+    "benchmark": {
+      "macro_f1_all": 0.40440540732730607,
+      "macro_f1_real_only": 0.4038983153925683,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "generic",
+    "axis": "MU",
+    "dim": 4096,
+    "n_train": 1730,
+    "separability": {
+      "macro_f1": 0.6754775453378908,
+      "n_test": 765,
+      "grade1_landing": {
+        "pred_0": 6,
+        "pred_1": 16,
+        "pred_2": 5,
+        "n": 27
+      },
+      "thresholds": [
+        0.009849389914010737,
+        0.14974887511808205
+      ],
+      "macro_f1_extreme": 0.7029970649660798,
+      "macro_f1_ovr": 0.5351204742435534
+    },
+    "benchmark": {
+      "macro_f1_all": 0.4751605311328704,
+      "macro_f1_real_only": 0.4576718704105978,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "generic",
+    "axis": "PU",
+    "dim": 4096,
+    "n_train": 1825,
+    "separability": {
+      "macro_f1": 0.9145206170036628,
+      "n_test": 702,
+      "grade1_landing": {
+        "pred_0": 6,
+        "pred_1": 74,
+        "pred_2": 7,
+        "n": 87
+      },
+      "thresholds": [
+        0.030709782815683186,
+        0.24223400170000312
+      ],
+      "macro_f1_extreme": 0.9018179308652341,
+      "macro_f1_ovr": 0.9336478607210315
+    },
+    "benchmark": {
+      "macro_f1_all": 0.7735044307781705,
+      "macro_f1_real_only": 0.6438751931934689,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "generic",
+    "axis": "ET",
+    "dim": 4096,
+    "n_train": 1319,
+    "separability": {
+      "macro_f1": 0.6485745137708051,
+      "n_test": 413,
+      "grade1_landing": {
+        "pred_0": 18,
+        "pred_1": 114,
+        "pred_2": 52,
+        "n": 184
+      },
+      "thresholds": [
+        -0.07315418602485962,
+        0.1170245529729493
+      ],
+      "macro_f1_extreme": 0.6505414250154783,
+      "macro_f1_ovr": 0.6595975631266876
+    },
+    "benchmark": {
+      "macro_f1_all": 0.509314020114597,
+      "macro_f1_real_only": 0.4964314036478985,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "generic",
+    "axis": "MU",
+    "dim": 3072,
+    "n_train": 1730,
+    "separability": {
+      "macro_f1": 0.7455501769794339,
+      "n_test": 765,
+      "grade1_landing": {
+        "pred_0": 7,
+        "pred_1": 19,
+        "pred_2": 1,
+        "n": 27
+      },
+      "thresholds": [
+        0.023473982958882283,
+        0.128711540953413
+      ],
+      "macro_f1_extreme": 0.742836783097145,
+      "macro_f1_ovr": 0.6267969383516939
+    },
+    "benchmark": {
+      "macro_f1_all": 0.5943737682964105,
+      "macro_f1_real_only": 0.5806615856969909,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "generic",
+    "axis": "PU",
+    "dim": 3072,
+    "n_train": 1825,
+    "separability": {
+      "macro_f1": 0.9499713310672456,
+      "n_test": 702,
+      "grade1_landing": {
+        "pred_0": 6,
+        "pred_1": 78,
+        "pred_2": 3,
+        "n": 87
+      },
+      "thresholds": [
+        0.004248220565211042,
+        0.19555122160551178
+      ],
+      "macro_f1_extreme": 0.937541319547123,
+      "macro_f1_ovr": 0.9048191270752935
+    },
+    "benchmark": {
+      "macro_f1_all": 0.7647909569931168,
+      "macro_f1_real_only": 0.6953459191239376,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "generic",
+    "axis": "ET",
+    "dim": 3072,
+    "n_train": 1319,
+    "separability": {
+      "macro_f1": 0.7015053128689491,
+      "n_test": 413,
+      "grade1_landing": {
+        "pred_0": 19,
+        "pred_1": 132,
+        "pred_2": 33,
+        "n": 184
+      },
+      "thresholds": [
+        -0.00962633426569679,
+        0.08669396619137469
+      ],
+      "macro_f1_extreme": 0.7083394920285673,
+      "macro_f1_ovr": 0.7029241271540286
+    },
+    "benchmark": {
+      "macro_f1_all": 0.7126999921029772,
+      "macro_f1_real_only": 0.7287197159181874,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "none",
+    "axis": "MU",
+    "dim": 4096,
+    "n_train": 1730,
+    "separability": {
+      "macro_f1": 0.6291815472713077,
+      "n_test": 765,
+      "grade1_landing": {
+        "pred_0": 20,
+        "pred_1": 2,
+        "pred_2": 5,
+        "n": 27
+      },
+      "thresholds": [
+        -0.03648691662201884,
+        -0.008042807575766132
+      ],
+      "macro_f1_extreme": 0.5965789233452831,
+      "macro_f1_ovr": 0.43959684380983993
+    },
+    "benchmark": {
+      "macro_f1_all": 0.42672672524161454,
+      "macro_f1_real_only": 0.3782318977051671,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "none",
+    "axis": "PU",
+    "dim": 4096,
+    "n_train": 1825,
+    "separability": {
+      "macro_f1": 0.7712862347720139,
+      "n_test": 702,
+      "grade1_landing": {
+        "pred_0": 17,
+        "pred_1": 54,
+        "pred_2": 16,
+        "n": 87
+      },
+      "thresholds": [
+        0.05037792188841899,
+        0.19857980645191992
+      ],
+      "macro_f1_extreme": 0.7695652544710544,
+      "macro_f1_ovr": 0.8434875814090873
+    },
+    "benchmark": {
+      "macro_f1_all": 0.6674960162248298,
+      "macro_f1_real_only": 0.5557661340270036,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "none",
+    "axis": "ET",
+    "dim": 4096,
+    "n_train": 1319,
+    "separability": {
+      "macro_f1": 0.6105256362668043,
+      "n_test": 413,
+      "grade1_landing": {
+        "pred_0": 31,
+        "pred_1": 122,
+        "pred_2": 31,
+        "n": 184
+      },
+      "thresholds": [
+        -0.04535757756712091,
+        0.11633293144002586
+      ],
+      "macro_f1_extreme": 0.6117357162495415,
+      "macro_f1_ovr": 0.6837760778176962
+    },
+    "benchmark": {
+      "macro_f1_all": 0.6184709594146451,
+      "macro_f1_real_only": 0.5935041202916435,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "per_axis_pos",
+    "axis": "MU",
+    "dim": 4096,
+    "n_train": 1730,
+    "separability": {
+      "macro_f1": 0.6833923721363666,
+      "n_test": 765,
+      "grade1_landing": {
+        "pred_0": 14,
+        "pred_1": 7,
+        "pred_2": 6,
+        "n": 27
+      },
+      "thresholds": [
+        0.09145255971367622,
+        0.15124738042351815
+      ],
+      "macro_f1_extreme": 0.688416248574458,
+      "macro_f1_ovr": 0.634740241246807
+    },
+    "benchmark": {
+      "macro_f1_all": 0.503451121256793,
+      "macro_f1_real_only": 0.44484399515475115,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "per_axis_pos",
+    "axis": "PU",
+    "dim": 4096,
+    "n_train": 1825,
+    "separability": {
+      "macro_f1": 0.9231642072078982,
+      "n_test": 702,
+      "grade1_landing": {
+        "pred_0": 9,
+        "pred_1": 78,
+        "pred_2": 0,
+        "n": 87
+      },
+      "thresholds": [
+        -0.14274213182569298,
+        0.28536051184580097
+      ],
+      "macro_f1_extreme": 0.9154813280030168,
+      "macro_f1_ovr": 0.9799569808059689
+    },
+    "benchmark": {
+      "macro_f1_all": 0.7500767398109,
+      "macro_f1_real_only": 0.716143788325459,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "per_axis_pos",
+    "axis": "ET",
+    "dim": 4096,
+    "n_train": 1319,
+    "separability": {
+      "macro_f1": 0.6187358263932823,
+      "n_test": 413,
+      "grade1_landing": {
+        "pred_0": 24,
+        "pred_1": 107,
+        "pred_2": 53,
+        "n": 184
+      },
+      "thresholds": [
+        -0.17284010731160845,
+        0.050536645627260235
+      ],
+      "macro_f1_extreme": 0.588255567338282,
+      "macro_f1_ovr": 0.5975716294866223
+    },
+    "benchmark": {
+      "macro_f1_all": 0.5009537470431326,
+      "macro_f1_real_only": 0.4881553828016063,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "none",
+    "axis": "MU",
+    "dim": 5376,
+    "n_train": 1730,
+    "separability": {
+      "macro_f1": 0.7016523665477988,
+      "n_test": 765,
+      "grade1_landing": {
+        "pred_0": 16,
+        "pred_1": 8,
+        "pred_2": 3,
+        "n": 27
+      },
+      "thresholds": [
+        0.052848684780240684,
+        0.11731477255449792
+      ],
+      "macro_f1_extreme": 0.6855065276935578,
+      "macro_f1_ovr": 0.5168347280516138
+    },
+    "benchmark": {
+      "macro_f1_all": 0.4899014975928723,
+      "macro_f1_real_only": 0.41962518858128095,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "none",
+    "axis": "PU",
+    "dim": 5376,
+    "n_train": 1825,
+    "separability": {
+      "macro_f1": 0.8553360160162188,
+      "n_test": 702,
+      "grade1_landing": {
+        "pred_0": 12,
+        "pred_1": 55,
+        "pred_2": 20,
+        "n": 87
+      },
+      "thresholds": [
+        0.08584095309929973,
+        0.216844766161421
+      ],
+      "macro_f1_extreme": 0.8403469667542526,
+      "macro_f1_ovr": 0.7318772116806214
+    },
+    "benchmark": {
+      "macro_f1_all": 0.6954375470900637,
+      "macro_f1_real_only": 0.5677125735900886,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "none",
+    "axis": "ET",
+    "dim": 5376,
+    "n_train": 1319,
+    "separability": {
+      "macro_f1": 0.679776954591017,
+      "n_test": 413,
+      "grade1_landing": {
+        "pred_0": 13,
+        "pred_1": 118,
+        "pred_2": 53,
+        "n": 184
+      },
+      "thresholds": [
+        -0.08212835357667457,
+        0.041775054398146105
+      ],
+      "macro_f1_extreme": 0.6604303357169391,
+      "macro_f1_ovr": 0.5689341845413548
+    },
+    "benchmark": {
+      "macro_f1_all": 0.64038685072081,
+      "macro_f1_real_only": 0.6247284380699313,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "generic",
+    "axis": "MU",
+    "dim": 5376,
+    "n_train": 1730,
+    "separability": {
+      "macro_f1": 0.6803808392043686,
+      "n_test": 765,
+      "grade1_landing": {
+        "pred_0": 15,
+        "pred_1": 10,
+        "pred_2": 2,
+        "n": 27
+      },
+      "thresholds": [
+        0.07024077782542784,
+        0.16141373884056529
+      ],
+      "macro_f1_extreme": 0.6774902887605849,
+      "macro_f1_ovr": 0.44642833012398225
+    },
+    "benchmark": {
+      "macro_f1_all": 0.5521406458462522,
+      "macro_f1_real_only": 0.5732401157184186,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "generic",
+    "axis": "PU",
+    "dim": 5376,
+    "n_train": 1825,
+    "separability": {
+      "macro_f1": 0.8580043768672375,
+      "n_test": 702,
+      "grade1_landing": {
+        "pred_0": 10,
+        "pred_1": 69,
+        "pred_2": 8,
+        "n": 87
+      },
+      "thresholds": [
+        0.08055492913482164,
+        0.2402064491403628
+      ],
+      "macro_f1_extreme": 0.8547885123768325,
+      "macro_f1_ovr": 0.8285387881500929
+    },
+    "benchmark": {
+      "macro_f1_all": 0.5841741119536041,
+      "macro_f1_real_only": 0.525175951175172,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "generic",
+    "axis": "ET",
+    "dim": 5376,
+    "n_train": 1319,
+    "separability": {
+      "macro_f1": 0.613948660134168,
+      "n_test": 413,
+      "grade1_landing": {
+        "pred_0": 25,
+        "pred_1": 115,
+        "pred_2": 44,
+        "n": 184
+      },
+      "thresholds": [
+        -0.04226198478645236,
+        0.09099388667313323
+      ],
+      "macro_f1_extreme": 0.612083192847268,
+      "macro_f1_ovr": 0.7007936507936509
+    },
+    "benchmark": {
+      "macro_f1_all": 0.5336529521670811,
+      "macro_f1_real_only": 0.5381477496862113,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "per_axis",
+    "axis": "MU",
+    "dim": 5376,
+    "n_train": 1730,
+    "separability": {
+      "macro_f1": 0.6821732549180209,
+      "n_test": 765,
+      "grade1_landing": {
+        "pred_0": 17,
+        "pred_1": 7,
+        "pred_2": 3,
+        "n": 27
+      },
+      "thresholds": [
+        0.10945950355450078,
+        0.1994709311451051
+      ],
+      "macro_f1_extreme": 0.6839332107143167,
+      "macro_f1_ovr": 0.23022922252353392
+    },
+    "benchmark": {
+      "macro_f1_all": 0.5926650083011862,
+      "macro_f1_real_only": 0.6105756358768407,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "per_axis",
+    "axis": "PU",
+    "dim": 5376,
+    "n_train": 1825,
+    "separability": {
+      "macro_f1": 0.9109071397720458,
+      "n_test": 702,
+      "grade1_landing": {
+        "pred_0": 11,
+        "pred_1": 76,
+        "pred_2": 0,
+        "n": 87
+      },
+      "thresholds": [
+        -0.014142768286107306,
+        0.252426908482223
+      ],
+      "macro_f1_extreme": 0.9289450985925081,
+      "macro_f1_ovr": 0.8289832727227684
+    },
+    "benchmark": {
+      "macro_f1_all": 0.7267282788634474,
+      "macro_f1_real_only": 0.6283300573788394,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "per_axis",
+    "axis": "ET",
+    "dim": 5376,
+    "n_train": 1319,
+    "separability": {
+      "macro_f1": 0.6163853446748183,
+      "n_test": 413,
+      "grade1_landing": {
+        "pred_0": 28,
+        "pred_1": 106,
+        "pred_2": 50,
+        "n": 184
+      },
+      "thresholds": [
+        -0.046445137686893304,
+        0.09518847678724916
+      ],
+      "macro_f1_extreme": 0.6270743962070768,
+      "macro_f1_ovr": 0.7006937094284843
+    },
+    "benchmark": {
+      "macro_f1_all": 0.48314489553889933,
+      "macro_f1_real_only": 0.484807590070748,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "per_axis_pos",
+    "axis": "MU",
+    "dim": 5376,
+    "n_train": 1730,
+    "separability": {
+      "macro_f1": 0.7003367695142391,
+      "n_test": 765,
+      "grade1_landing": {
+        "pred_0": 17,
+        "pred_1": 9,
+        "pred_2": 1,
+        "n": 27
+      },
+      "thresholds": [
+        0.09639982473150166,
+        0.2007281997197189
+      ],
+      "macro_f1_extreme": 0.7026825261809447,
+      "macro_f1_ovr": 0.27251299210560503
+    },
+    "benchmark": {
+      "macro_f1_all": 0.6094734409295325,
+      "macro_f1_real_only": 0.6252843678908028,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "per_axis_pos",
+    "axis": "PU",
+    "dim": 5376,
+    "n_train": 1825,
+    "separability": {
+      "macro_f1": 0.923474425605603,
+      "n_test": 702,
+      "grade1_landing": {
+        "pred_0": 6,
+        "pred_1": 81,
+        "pred_2": 0,
+        "n": 87
+      },
+      "thresholds": [
+        -0.01176836891506863,
+        0.2756830264098192
+      ],
+      "macro_f1_extreme": 0.9275951686107166,
+      "macro_f1_ovr": 0.8206669736789535
+    },
+    "benchmark": {
+      "macro_f1_all": 0.6853199353199354,
+      "macro_f1_real_only": 0.5975405011925782,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "per_axis_pos",
+    "axis": "ET",
+    "dim": 5376,
+    "n_train": 1319,
+    "separability": {
+      "macro_f1": 0.6138358917857125,
+      "n_test": 413,
+      "grade1_landing": {
+        "pred_0": 25,
+        "pred_1": 102,
+        "pred_2": 57,
+        "n": 184
+      },
+      "thresholds": [
+        -0.06121029772692688,
+        0.0761416498582102
+      ],
+      "macro_f1_extreme": 0.5934049334863463,
+      "macro_f1_ovr": 0.6848441296506765
+    },
+    "benchmark": {
+      "macro_f1_all": 0.501256629133867,
+      "macro_f1_real_only": 0.503051791089264,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "none",
+    "axis": "MU",
+    "dim": 3072,
+    "n_train": 1730,
+    "separability": {
+      "macro_f1": 0.6716099774157817,
+      "n_test": 765,
+      "grade1_landing": {
+        "pred_0": 16,
+        "pred_1": 10,
+        "pred_2": 1,
+        "n": 27
+      },
+      "thresholds": [
+        0.19626661591807046,
+        0.27619740963923517
+      ],
+      "macro_f1_extreme": 0.6544442866026147,
+      "macro_f1_ovr": 0.3346318944831228
+    },
+    "benchmark": {
+      "macro_f1_all": 0.4102595602595603,
+      "macro_f1_real_only": 0.3200675436791253,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "none",
+    "axis": "PU",
+    "dim": 3072,
+    "n_train": 1825,
+    "separability": {
+      "macro_f1": 0.7705361986691909,
+      "n_test": 702,
+      "grade1_landing": {
+        "pred_0": 20,
+        "pred_1": 41,
+        "pred_2": 26,
+        "n": 87
+      },
+      "thresholds": [
+        0.21099381297976072,
+        0.32616345012419956
+      ],
+      "macro_f1_extreme": 0.7739663609944136,
+      "macro_f1_ovr": 0.46105984021170254
+    },
+    "benchmark": {
+      "macro_f1_all": 0.6597661597137652,
+      "macro_f1_real_only": 0.5425651867512333,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "none",
+    "axis": "ET",
+    "dim": 3072,
+    "n_train": 1319,
+    "separability": {
+      "macro_f1": 0.6567073805300296,
+      "n_test": 413,
+      "grade1_landing": {
+        "pred_0": 29,
+        "pred_1": 121,
+        "pred_2": 34,
+        "n": 184
+      },
+      "thresholds": [
+        0.1389709166332119,
+        0.2938181236246534
+      ],
+      "macro_f1_extreme": 0.6468395821631109,
+      "macro_f1_ovr": 0.4722929925443891
+    },
+    "benchmark": {
+      "macro_f1_all": 0.6706035028440344,
+      "macro_f1_real_only": 0.6690090747720324,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "per_axis_pos",
+    "axis": "MU",
+    "dim": 3072,
+    "n_train": 1730,
+    "separability": {
+      "macro_f1": 0.7192401904295177,
+      "n_test": 765,
+      "grade1_landing": {
+        "pred_0": 11,
+        "pred_1": 15,
+        "pred_2": 1,
+        "n": 27
+      },
+      "thresholds": [
+        -0.04248277464020384,
+        0.09415668641238042
+      ],
+      "macro_f1_extreme": 0.739059463661096,
+      "macro_f1_ovr": 0.6545904693344052
+    },
+    "benchmark": {
+      "macro_f1_all": 0.6499085102598715,
+      "macro_f1_real_only": 0.6652158926296315,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "per_axis_pos",
+    "axis": "PU",
+    "dim": 3072,
+    "n_train": 1825,
+    "separability": {
+      "macro_f1": 0.954758829512928,
+      "n_test": 702,
+      "grade1_landing": {
+        "pred_0": 9,
+        "pred_1": 78,
+        "pred_2": 0,
+        "n": 87
+      },
+      "thresholds": [
+        -0.004860725021301578,
+        0.19602166115215808
+      ],
+      "macro_f1_extreme": 0.9543529090400903,
+      "macro_f1_ovr": 0.9588610771597397
+    },
+    "benchmark": {
+      "macro_f1_all": 0.6896935923129695,
+      "macro_f1_real_only": 0.6719536437846297,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "per_axis_pos",
+    "axis": "ET",
+    "dim": 3072,
+    "n_train": 1319,
+    "separability": {
+      "macro_f1": 0.6118541270864195,
+      "n_test": 413,
+      "grade1_landing": {
+        "pred_0": 10,
+        "pred_1": 94,
+        "pred_2": 80,
+        "n": 184
+      },
+      "thresholds": [
+        -0.13680243531593186,
+        0.03239427103881244
+      ],
+      "macro_f1_extreme": 0.5988051743370892,
+      "macro_f1_ovr": 0.6423884607885523
+    },
+    "benchmark": {
+      "macro_f1_all": 0.3234783220775767,
+      "macro_f1_real_only": 0.3095042366963492,
+      "n_all": 400,
+      "n_real": 290,
+      "coverage": 1.0
+    }
+  }
+]

@@ -1,0 +1,34 @@
+# cg-probes .gitignore — BACKSTOP only. This release is built by allowlist, so the
+# tree already contains only what should ship; this file just prevents accidents.
+
+# secrets / env
+.env
+*.env
+*.key
+*.pem
+*.7z
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# never (raw inputs / withheld data / internal scaffolding) — see README "What is withheld"
+*ga4*
+*employees*
+iec-*
+*site_search*
+*unified_2025*
+llm_responses/
+CLAUDE.md
+.claude/
+memory/
+*PLAN*
+PAPER.md
+REGISTRY.md
+_archive/
+
+# NOTE: the SHIPPED derived artifacts under */cache/ (probe datasets, golden set,
+# headline embeddings, probe directions, result JSONs, figures) ARE committed on
+# purpose — they are the reproducibility payload, not transient cache.

@@ -1,0 +1,88 @@
+{
+  "gpt-oss-safeguard-20b__low": {
+    "model": "gpt-oss-safeguard-20b",
+    "reasoning_effort": "low",
+    "subset": "",
+    "isolated": {
+      "n": 10,
+      "mean_s": 4.113,
+      "median_s": 3.898,
+      "p95_s": 6.383,
+      "min_s": 2.242,
+      "max_s": 7.328
+    },
+    "isolated_mean_completion_tokens": 342.8,
+    "endpoint_host": "xj18cirnfnyo8sat.us-east-1.aws.endpoints.huggingface.cloud",
+    "under_load": {
+      "n": 400,
+      "mean_s": 4.86,
+      "median_s": 4.521,
+      "p95_s": 8.138,
+      "min_s": 1.631,
+      "max_s": 13.624
+    },
+    "throughput_qps": 1.533,
+    "run_concurrency": 8,
+    "fresh_queries": 400,
+    "wall_sec": 260.89,
+    "out_parquet": "gpt-oss-safeguard-20b__triage_low.parquet"
+  },
+  "gpt-oss-safeguard-20b__medium": {
+    "model": "gpt-oss-safeguard-20b",
+    "reasoning_effort": "medium",
+    "subset": "",
+    "isolated": {
+      "n": 10,
+      "mean_s": 5.844,
+      "median_s": 4.629,
+      "p95_s": 9.586,
+      "min_s": 3.049,
+      "max_s": 10.563
+    },
+    "isolated_mean_completion_tokens": 864.0,
+    "endpoint_host": "xj18cirnfnyo8sat.us-east-1.aws.endpoints.huggingface.cloud",
+    "under_load": {
+      "n": 399,
+      "mean_s": 7.261,
+      "median_s": 5.651,
+      "p95_s": 18.653,
+      "min_s": 1.489,
+      "max_s": 50.474
+    },
+    "throughput_qps": 0.524,
+    "run_concurrency": 8,
+    "fresh_queries": 400,
+    "wall_sec": 763.69,
+    "out_parquet": "gpt-oss-safeguard-20b__triage_medium.parquet"
+  },
+  "gpt-oss-safeguard-20b__low__gap": {
+    "model": "gpt-oss-safeguard-20b",
+    "reasoning_effort": "low",
+    "subset": "",
+    "isolated": {
+      "n": 15,
+      "mean_s": 2.878,
+      "median_s": 2.599,
+      "p95_s": 4.523,
+      "min_s": 1.696,
+      "max_s": 4.562
+    },
+    "isolated_mean_completion_tokens": 359.7,
+    "endpoint_host": "xj18cirnfnyo8sat.us-east-1.aws.endpoints.huggingface.cloud"
+  },
+  "gpt-oss-safeguard-20b__medium__gap": {
+    "model": "gpt-oss-safeguard-20b",
+    "reasoning_effort": "medium",
+    "subset": "",
+    "isolated": {
+      "n": 15,
+      "mean_s": 6.955,
+      "median_s": 5.667,
+      "p95_s": 11.267,
+      "min_s": 3.086,
+      "max_s": 13.345
+    },
+    "isolated_mean_completion_tokens": 982.0,
+    "endpoint_host": "xj18cirnfnyo8sat.us-east-1.aws.endpoints.huggingface.cloud"
+  }
+}

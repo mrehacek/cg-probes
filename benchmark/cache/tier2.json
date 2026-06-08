@@ -1,0 +1,782 @@
+[
+  {
+    "embedder": "qwen8b",
+    "mode": "none",
+    "axis": "MU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6291815472713077,
+      "f1_linear_full": 0.6235415388809378,
+      "f1_mlp": 0.6969796215429404,
+      "mlp_minus_dom": 0.06779807427163265,
+      "mlp_minus_linear": 0.07343808266200258,
+      "linear_minus_dom": -0.005640008390369933
+    },
+    "selectivity": {
+      "f1_real": 0.6291815472713077,
+      "f1_control_mean": 0.37802164474914707,
+      "f1_control_std": 0.10863972904854202,
+      "selectivity": 0.25115990252216064,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "none",
+    "axis": "PU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.7712862347720139,
+      "f1_linear_full": 0.9436746377313844,
+      "f1_mlp": 0.9331639641367669,
+      "mlp_minus_dom": 0.1618777293647531,
+      "mlp_minus_linear": -0.010510673594617437,
+      "linear_minus_dom": 0.17238840295937052
+    },
+    "selectivity": {
+      "f1_real": 0.7712862347720139,
+      "f1_control_mean": 0.34267090655221233,
+      "f1_control_std": 0.07027824998574615,
+      "selectivity": 0.42861532821980153,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "none",
+    "axis": "ET",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6105256362668043,
+      "f1_linear_full": 0.8403794110315849,
+      "f1_mlp": 0.859566247494077,
+      "mlp_minus_dom": 0.2490406112272726,
+      "mlp_minus_linear": 0.019186836462492085,
+      "linear_minus_dom": 0.22985377476478053
+    },
+    "selectivity": {
+      "f1_real": 0.6105256362668043,
+      "f1_control_mean": 0.31052334619666216,
+      "f1_control_std": 0.0320037532681744,
+      "selectivity": 0.3000022900701422,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "generic",
+    "axis": "MU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6754775453378908,
+      "f1_linear_full": 0.6438516252592619,
+      "f1_mlp": 0.68924514389195,
+      "mlp_minus_dom": 0.01376759855405918,
+      "mlp_minus_linear": 0.045393518632688146,
+      "linear_minus_dom": -0.031625920078628966
+    },
+    "selectivity": {
+      "f1_real": 0.6754775453378908,
+      "f1_control_mean": 0.41329596045905354,
+      "f1_control_std": 0.12490604935176619,
+      "selectivity": 0.2621815848788373,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "generic",
+    "axis": "PU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.9145206170036628,
+      "f1_linear_full": 0.9854876383406336,
+      "f1_mlp": 0.982542315889218,
+      "mlp_minus_dom": 0.0680216988855552,
+      "mlp_minus_linear": -0.002945322451415544,
+      "linear_minus_dom": 0.07096702133697075
+    },
+    "selectivity": {
+      "f1_real": 0.9145206170036628,
+      "f1_control_mean": 0.4270385282734144,
+      "f1_control_std": 0.0933160010670579,
+      "selectivity": 0.48748208873024845,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "generic",
+    "axis": "ET",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6485745137708051,
+      "f1_linear_full": 0.8342402576542716,
+      "f1_mlp": 0.8315489390543345,
+      "mlp_minus_dom": 0.18297442528352936,
+      "mlp_minus_linear": -0.002691318599937098,
+      "linear_minus_dom": 0.18566574388346646
+    },
+    "selectivity": {
+      "f1_real": 0.6485745137708051,
+      "f1_control_mean": 0.30732812275347304,
+      "f1_control_std": 0.056847209075993596,
+      "selectivity": 0.34124639101733206,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "per_axis",
+    "axis": "MU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6879688236401034,
+      "f1_linear_full": 0.6379709367096842,
+      "f1_mlp": 0.6686793823095504,
+      "mlp_minus_dom": -0.019289441330552992,
+      "mlp_minus_linear": 0.030708445599866185,
+      "linear_minus_dom": -0.04999788693041918
+    },
+    "selectivity": {
+      "f1_real": 0.6879688236401034,
+      "f1_control_mean": 0.3698376912298766,
+      "f1_control_std": 0.14152528404755332,
+      "selectivity": 0.3181311324102268,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "per_axis",
+    "axis": "PU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.9143818812279747,
+      "f1_linear_full": 0.9887702386734127,
+      "f1_mlp": 0.984420088987448,
+      "mlp_minus_dom": 0.07003820775947334,
+      "mlp_minus_linear": -0.004350149685964699,
+      "linear_minus_dom": 0.07438835744543804
+    },
+    "selectivity": {
+      "f1_real": 0.9143818812279747,
+      "f1_control_mean": 0.4825338371130747,
+      "f1_control_std": 0.17838369215160993,
+      "selectivity": 0.4318480441149,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "per_axis",
+    "axis": "ET",
+    "linear_vs_mlp": {
+      "f1_dom": 0.5806868603710008,
+      "f1_linear_full": 0.7891627039002551,
+      "f1_mlp": 0.8189206498453011,
+      "mlp_minus_dom": 0.2382337894743003,
+      "mlp_minus_linear": 0.029757945945045994,
+      "linear_minus_dom": 0.2084758435292543
+    },
+    "selectivity": {
+      "f1_real": 0.5806868603710008,
+      "f1_control_mean": 0.3206669558873219,
+      "f1_control_std": 0.0562829592857998,
+      "selectivity": 0.2600199044836789,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "per_axis_pos",
+    "axis": "MU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6833923721363666,
+      "f1_linear_full": 0.6458404762137998,
+      "f1_mlp": 0.6936316444430034,
+      "mlp_minus_dom": 0.010239272306636793,
+      "mlp_minus_linear": 0.047791168229203596,
+      "linear_minus_dom": -0.0375518959225668
+    },
+    "selectivity": {
+      "f1_real": 0.6833923721363666,
+      "f1_control_mean": 0.37482106765224343,
+      "f1_control_std": 0.14590245071278568,
+      "selectivity": 0.3085713044841232,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "per_axis_pos",
+    "axis": "PU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.9231642072078982,
+      "f1_linear_full": 0.9887702386734127,
+      "f1_mlp": 0.9865853957063475,
+      "mlp_minus_dom": 0.06342118849844935,
+      "mlp_minus_linear": -0.002184842967065226,
+      "linear_minus_dom": 0.06560603146551458
+    },
+    "selectivity": {
+      "f1_real": 0.9231642072078982,
+      "f1_control_mean": 0.48250939267381227,
+      "f1_control_std": 0.15137836148028735,
+      "selectivity": 0.4406548145340859,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "qwen8b",
+    "mode": "per_axis_pos",
+    "axis": "ET",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6187358263932823,
+      "f1_linear_full": 0.8158739507452101,
+      "f1_mlp": 0.8047661103807006,
+      "mlp_minus_dom": 0.18603028398741828,
+      "mlp_minus_linear": -0.011107840364509514,
+      "linear_minus_dom": 0.1971381243519278
+    },
+    "selectivity": {
+      "f1_real": 0.6187358263932823,
+      "f1_control_mean": 0.31567929888590796,
+      "f1_control_std": 0.046821211911323934,
+      "selectivity": 0.30305652750737433,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "none",
+    "axis": "MU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.7016523665477988,
+      "f1_linear_full": 0.6462065614423109,
+      "f1_mlp": 0.6944702648675661,
+      "mlp_minus_dom": -0.0071821016802327,
+      "mlp_minus_linear": 0.04826370342525521,
+      "linear_minus_dom": -0.05544580510548791
+    },
+    "selectivity": {
+      "f1_real": 0.7016523665477988,
+      "f1_control_mean": 0.3874386825063254,
+      "f1_control_std": 0.12385098183060447,
+      "selectivity": 0.31421368404147343,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "none",
+    "axis": "PU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.8553360160162188,
+      "f1_linear_full": 0.9702680275495809,
+      "f1_mlp": 0.9917071901014235,
+      "mlp_minus_dom": 0.13637117408520472,
+      "mlp_minus_linear": 0.02143916255184264,
+      "linear_minus_dom": 0.11493201153336208
+    },
+    "selectivity": {
+      "f1_real": 0.8553360160162188,
+      "f1_control_mean": 0.3615601690818657,
+      "f1_control_std": 0.0640109403724073,
+      "selectivity": 0.49377584693435306,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "none",
+    "axis": "ET",
+    "linear_vs_mlp": {
+      "f1_dom": 0.679776954591017,
+      "f1_linear_full": 0.8656846440167895,
+      "f1_mlp": 0.8935878011760124,
+      "mlp_minus_dom": 0.2138108465849955,
+      "mlp_minus_linear": 0.02790315715922298,
+      "linear_minus_dom": 0.18590768942577252
+    },
+    "selectivity": {
+      "f1_real": 0.679776954591017,
+      "f1_control_mean": 0.30501318025055973,
+      "f1_control_std": 0.04994135075936015,
+      "selectivity": 0.3747637743404572,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "generic",
+    "axis": "MU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6803808392043686,
+      "f1_linear_full": 0.6421145644103942,
+      "f1_mlp": 0.7730388579597491,
+      "mlp_minus_dom": 0.09265801875538049,
+      "mlp_minus_linear": 0.13092429354935498,
+      "linear_minus_dom": -0.038266274793974486
+    },
+    "selectivity": {
+      "f1_real": 0.6803808392043686,
+      "f1_control_mean": 0.4471500120479117,
+      "f1_control_std": 0.16378726902900284,
+      "selectivity": 0.23323082715645693,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "generic",
+    "axis": "PU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.8580043768672375,
+      "f1_linear_full": 0.9859423598845933,
+      "f1_mlp": 0.9580569419593811,
+      "mlp_minus_dom": 0.10005256509214355,
+      "mlp_minus_linear": -0.027885417925212264,
+      "linear_minus_dom": 0.12793798301735582
+    },
+    "selectivity": {
+      "f1_real": 0.8580043768672375,
+      "f1_control_mean": 0.4475973453310208,
+      "f1_control_std": 0.18248911175143964,
+      "selectivity": 0.4104070315362167,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "generic",
+    "axis": "ET",
+    "linear_vs_mlp": {
+      "f1_dom": 0.613948660134168,
+      "f1_linear_full": 0.8134957700540829,
+      "f1_mlp": 0.8057409257409257,
+      "mlp_minus_dom": 0.19179226560675766,
+      "mlp_minus_linear": -0.007754844313157205,
+      "linear_minus_dom": 0.19954710991991487
+    },
+    "selectivity": {
+      "f1_real": 0.613948660134168,
+      "f1_control_mean": 0.32365273072670814,
+      "f1_control_std": 0.07990013535707793,
+      "selectivity": 0.2902959294074599,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "per_axis",
+    "axis": "MU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6821732549180209,
+      "f1_linear_full": 0.6409081578191075,
+      "f1_mlp": 0.6402865670467565,
+      "mlp_minus_dom": -0.04188668787126448,
+      "mlp_minus_linear": -0.0006215907723510217,
+      "linear_minus_dom": -0.04126509709891346
+    },
+    "selectivity": {
+      "f1_real": 0.6821732549180209,
+      "f1_control_mean": 0.45064271493066466,
+      "f1_control_std": 0.19617267269770358,
+      "selectivity": 0.2315305399873563,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "per_axis",
+    "axis": "PU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.9109071397720458,
+      "f1_linear_full": 0.9947279082805561,
+      "f1_mlp": 0.9798166192787526,
+      "mlp_minus_dom": 0.06890947950670678,
+      "mlp_minus_linear": -0.014911289001803496,
+      "linear_minus_dom": 0.08382076850851028
+    },
+    "selectivity": {
+      "f1_real": 0.9109071397720458,
+      "f1_control_mean": 0.49303755598290727,
+      "f1_control_std": 0.2274596332451709,
+      "selectivity": 0.4178695837891386,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "per_axis",
+    "axis": "ET",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6163853446748183,
+      "f1_linear_full": 0.7731305113126569,
+      "f1_mlp": 0.852952051055398,
+      "mlp_minus_dom": 0.23656670638057964,
+      "mlp_minus_linear": 0.07982153974274109,
+      "linear_minus_dom": 0.15674516663783855
+    },
+    "selectivity": {
+      "f1_real": 0.6163853446748183,
+      "f1_control_mean": 0.33627725166457134,
+      "f1_control_std": 0.08262595688311433,
+      "selectivity": 0.280108093010247,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "per_axis_pos",
+    "axis": "MU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.7003367695142391,
+      "f1_linear_full": 0.6421698062181312,
+      "f1_mlp": 0.6396705435867236,
+      "mlp_minus_dom": -0.06066622592751547,
+      "mlp_minus_linear": -0.0024992626314076505,
+      "linear_minus_dom": -0.05816696329610782
+    },
+    "selectivity": {
+      "f1_real": 0.7003367695142391,
+      "f1_control_mean": 0.45766475697996506,
+      "f1_control_std": 0.1991047783654959,
+      "selectivity": 0.242672012534274,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "per_axis_pos",
+    "axis": "PU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.923474425605603,
+      "f1_linear_full": 0.9917071901014235,
+      "f1_mlp": 0.9822409544493912,
+      "mlp_minus_dom": 0.05876652884378819,
+      "mlp_minus_linear": -0.009466235652032307,
+      "linear_minus_dom": 0.0682327644958205
+    },
+    "selectivity": {
+      "f1_real": 0.923474425605603,
+      "f1_control_mean": 0.49987960311271723,
+      "f1_control_std": 0.23208859871967882,
+      "selectivity": 0.42359482249288577,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "harrier27b",
+    "mode": "per_axis_pos",
+    "axis": "ET",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6138358917857125,
+      "f1_linear_full": 0.7769304677010181,
+      "f1_mlp": 0.8565374331550801,
+      "mlp_minus_dom": 0.2427015413693676,
+      "mlp_minus_linear": 0.07960696545406198,
+      "linear_minus_dom": 0.16309457591530563
+    },
+    "selectivity": {
+      "f1_real": 0.6138358917857125,
+      "f1_control_mean": 0.35244383982545824,
+      "f1_control_std": 0.09654028922731528,
+      "selectivity": 0.2613920519602543,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "openai3large",
+    "mode": "generic",
+    "axis": "MU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.7077702225341017,
+      "f1_linear_full": 0.6451195638706481,
+      "f1_mlp": 0.6401790039824281,
+      "mlp_minus_dom": -0.0675912185516736,
+      "mlp_minus_linear": -0.004940559888219953,
+      "linear_minus_dom": -0.06265065866345365
+    },
+    "selectivity": {
+      "f1_real": 0.7077702225341017,
+      "f1_control_mean": 0.39908821410090944,
+      "f1_control_std": 0.12953941334050495,
+      "selectivity": 0.30868200843319227,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "openai3large",
+    "mode": "generic",
+    "axis": "PU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.8920424865293587,
+      "f1_linear_full": 0.9877316612114773,
+      "f1_mlp": 0.9808893869359622,
+      "mlp_minus_dom": 0.08884690040660348,
+      "mlp_minus_linear": -0.006842274275515092,
+      "linear_minus_dom": 0.09568917468211857
+    },
+    "selectivity": {
+      "f1_real": 0.8920424865293587,
+      "f1_control_mean": 0.3474555564404935,
+      "f1_control_std": 0.09238053466872716,
+      "selectivity": 0.5445869300888653,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "openai3large",
+    "mode": "generic",
+    "axis": "ET",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6553499931104694,
+      "f1_linear_full": 0.8366205672025934,
+      "f1_mlp": 0.8457816557911499,
+      "mlp_minus_dom": 0.19043166268068057,
+      "mlp_minus_linear": 0.009161088588556576,
+      "linear_minus_dom": 0.181270574092124
+    },
+    "selectivity": {
+      "f1_real": 0.6553499931104694,
+      "f1_control_mean": 0.314347336381959,
+      "f1_control_std": 0.06245761347512177,
+      "selectivity": 0.3410026567285104,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "none",
+    "axis": "MU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6716099774157817,
+      "f1_linear_full": 0.639874881000952,
+      "f1_mlp": 0.7028686569418386,
+      "mlp_minus_dom": 0.03125867952605699,
+      "mlp_minus_linear": 0.06299377594088662,
+      "linear_minus_dom": -0.03173509641482963
+    },
+    "selectivity": {
+      "f1_real": 0.6716099774157817,
+      "f1_control_mean": 0.38359327142117283,
+      "f1_control_std": 0.11398469423004408,
+      "selectivity": 0.2880167059946088,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "none",
+    "axis": "PU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.7705361986691909,
+      "f1_linear_full": 0.9641758431061604,
+      "f1_mlp": 0.9954455165764912,
+      "mlp_minus_dom": 0.2249093179073003,
+      "mlp_minus_linear": 0.03126967347033072,
+      "linear_minus_dom": 0.19363964443696957
+    },
+    "selectivity": {
+      "f1_real": 0.7705361986691909,
+      "f1_control_mean": 0.35515864512346423,
+      "f1_control_std": 0.06105544039651376,
+      "selectivity": 0.41537755354572664,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "none",
+    "axis": "ET",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6567073805300296,
+      "f1_linear_full": 0.8593409095458275,
+      "f1_mlp": 0.8644930176077716,
+      "mlp_minus_dom": 0.207785637077742,
+      "mlp_minus_linear": 0.005152108061944105,
+      "linear_minus_dom": 0.2026335290157979
+    },
+    "selectivity": {
+      "f1_real": 0.6567073805300296,
+      "f1_control_mean": 0.31200731323824626,
+      "f1_control_std": 0.04174124812902538,
+      "selectivity": 0.3447000672917834,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "generic",
+    "axis": "MU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.7455501769794339,
+      "f1_linear_full": 0.6487939132255717,
+      "f1_mlp": 0.7662685779446269,
+      "mlp_minus_dom": 0.02071840096519295,
+      "mlp_minus_linear": 0.11747466471905521,
+      "linear_minus_dom": -0.09675626375386226
+    },
+    "selectivity": {
+      "f1_real": 0.7455501769794339,
+      "f1_control_mean": 0.40059492749710823,
+      "f1_control_std": 0.14760484146358574,
+      "selectivity": 0.3449552494823257,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "generic",
+    "axis": "PU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.9499713310672456,
+      "f1_linear_full": 0.9923517974105609,
+      "f1_mlp": 0.9977333126518794,
+      "mlp_minus_dom": 0.04776198158463374,
+      "mlp_minus_linear": 0.005381515241318469,
+      "linear_minus_dom": 0.04238046634331527
+    },
+    "selectivity": {
+      "f1_real": 0.9499713310672456,
+      "f1_control_mean": 0.421315085793179,
+      "f1_control_std": 0.11865875090044409,
+      "selectivity": 0.5286562452740666,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "generic",
+    "axis": "ET",
+    "linear_vs_mlp": {
+      "f1_dom": 0.7015053128689491,
+      "f1_linear_full": 0.8687154702103562,
+      "f1_mlp": 0.8977053370030196,
+      "mlp_minus_dom": 0.19620002413407045,
+      "mlp_minus_linear": 0.028989866792663355,
+      "linear_minus_dom": 0.1672101573414071
+    },
+    "selectivity": {
+      "f1_real": 0.7015053128689491,
+      "f1_control_mean": 0.33454506132683737,
+      "f1_control_std": 0.07509739215341404,
+      "selectivity": 0.36696025154211176,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "per_axis",
+    "axis": "MU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.7425422188852795,
+      "f1_linear_full": 0.6463823599240266,
+      "f1_mlp": 0.6473418972332016,
+      "mlp_minus_dom": -0.09520032165207792,
+      "mlp_minus_linear": 0.0009595373091749737,
+      "linear_minus_dom": -0.0961598589612529
+    },
+    "selectivity": {
+      "f1_real": 0.7425422188852795,
+      "f1_control_mean": 0.4249295568212652,
+      "f1_control_std": 0.167428398427413,
+      "selectivity": 0.3176126620640143,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "per_axis",
+    "axis": "PU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.960684248641665,
+      "f1_linear_full": 0.9969944690748327,
+      "f1_mlp": 0.9924823279529907,
+      "mlp_minus_dom": 0.03179807931132572,
+      "mlp_minus_linear": -0.0045121411218419505,
+      "linear_minus_dom": 0.03631022043316767
+    },
+    "selectivity": {
+      "f1_real": 0.960684248641665,
+      "f1_control_mean": 0.4809970075646587,
+      "f1_control_std": 0.21063539574392565,
+      "selectivity": 0.47968724107700633,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "per_axis",
+    "axis": "ET",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6473734377585503,
+      "f1_linear_full": 0.8461538461538461,
+      "f1_mlp": 0.85421372191864,
+      "mlp_minus_dom": 0.2068402841600897,
+      "mlp_minus_linear": 0.008059875764793833,
+      "linear_minus_dom": 0.19878040839529587
+    },
+    "selectivity": {
+      "f1_real": 0.6473734377585503,
+      "f1_control_mean": 0.343617145711632,
+      "f1_control_std": 0.09107867397506131,
+      "selectivity": 0.3037562920469183,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "per_axis_pos",
+    "axis": "MU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.7192401904295177,
+      "f1_linear_full": 0.6469871125043539,
+      "f1_mlp": 0.6444942031148928,
+      "mlp_minus_dom": -0.0747459873146249,
+      "mlp_minus_linear": -0.0024929093894611176,
+      "linear_minus_dom": -0.07225307792516378
+    },
+    "selectivity": {
+      "f1_real": 0.7192401904295177,
+      "f1_control_mean": 0.424346790855774,
+      "f1_control_std": 0.16864141535824212,
+      "selectivity": 0.2948933995737437,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "per_axis_pos",
+    "axis": "PU",
+    "linear_vs_mlp": {
+      "f1_dom": 0.954758829512928,
+      "f1_linear_full": 0.9969944690748327,
+      "f1_mlp": 0.9947279082805561,
+      "mlp_minus_dom": 0.03996907876762812,
+      "mlp_minus_linear": -0.002266560794276562,
+      "linear_minus_dom": 0.04223563956190468
+    },
+    "selectivity": {
+      "f1_real": 0.954758829512928,
+      "f1_control_mean": 0.45318732666626066,
+      "f1_control_std": 0.19106047545420307,
+      "selectivity": 0.5015715028466674,
+      "n_shuffles": 5
+    }
+  },
+  {
+    "embedder": "gemini",
+    "mode": "per_axis_pos",
+    "axis": "ET",
+    "linear_vs_mlp": {
+      "f1_dom": 0.6118541270864195,
+      "f1_linear_full": 0.8589052456976985,
+      "f1_mlp": 0.8582874203006696,
+      "mlp_minus_dom": 0.24643329321425012,
+      "mlp_minus_linear": -0.000617825397028926,
+      "linear_minus_dom": 0.24705111861127904
+    },
+    "selectivity": {
+      "f1_real": 0.6118541270864195,
+      "f1_control_mean": 0.34776412989827354,
+      "f1_control_std": 0.09547771906915732,
+      "selectivity": 0.26408999718814596,
+      "n_shuffles": 5
+    }
+  }
+]

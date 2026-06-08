@@ -1,0 +1,9 @@
+{
+  "embedder": "qwen8b",
+  "mode": "none",
+  "axis": null,
+  "dim": 4096,
+  "instruction": null,
+  "n_texts": 6403,
+  "wall_sec": 122.3
+}

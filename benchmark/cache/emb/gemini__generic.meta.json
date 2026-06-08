@@ -1,0 +1,9 @@
+{
+  "embedder": "gemini",
+  "mode": "generic",
+  "axis": null,
+  "dim": 3072,
+  "instruction": "Represent the given Czech oncology patient query for classification along clinical-safety dimensions: medical urgency, psychological urgency, and emotional load.",
+  "n_texts": 6403,
+  "wall_sec": 146.8
+}

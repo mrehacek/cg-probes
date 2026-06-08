@@ -1,0 +1,9 @@
+{
+  "embedder": "gemini",
+  "mode": "per_axis",
+  "axis": "ET",
+  "dim": 3072,
+  "instruction": "Classify the intrinsic emotional load of the given Czech oncology patient query's topic, independent of the tone in which it is phrased.",
+  "n_texts": 2516,
+  "wall_sec": 70.7
+}

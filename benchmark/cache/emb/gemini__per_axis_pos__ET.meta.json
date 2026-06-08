@@ -1,0 +1,9 @@
+{
+  "embedder": "gemini",
+  "mode": "per_axis_pos",
+  "axis": "ET",
+  "dim": 3072,
+  "instruction": "Classify the emotional load of the topic of the given Czech oncology patient query.",
+  "n_texts": 2516,
+  "wall_sec": 37.6
+}

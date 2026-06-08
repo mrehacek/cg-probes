@@ -1,0 +1,9 @@
+{
+  "embedder": "gemini",
+  "mode": "per_axis_pos",
+  "axis": "PU",
+  "dim": 3072,
+  "instruction": "Classify the psychological urgency of the given Czech oncology patient query: the level of emotional distress, existential concern, or suicidal intent expressed.",
+  "n_texts": 3558,
+  "wall_sec": 87.3
+}
