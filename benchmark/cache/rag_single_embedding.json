@@ -1,0 +1,364 @@
+{
+  "embedder": "gemini",
+  "modes": [
+    "none",
+    "generic",
+    "per_axis"
+  ],
+  "baseline": "per_axis",
+  "tie": 0.05,
+  "mode_label": {
+    "none": "none (raw, no instruction)",
+    "generic": "generic (one shared instruction)",
+    "per_axis": "per_axis (conditioned baseline)"
+  },
+  "ceiling": {
+    "MU": 0.7806950747768877,
+    "PU": 0.9578059071729957,
+    "ET": 0.318658280922432
+  },
+  "axes": {
+    "MU": {
+      "cells": {
+        "none": {
+          "dom": {
+            "n": 89,
+            "qwk": 0.2134769400718033,
+            "qwk_lo": 0.019042844247497245,
+            "qwk_hi": 0.40012512274194545,
+            "macro_f1": 0.4286123647825775,
+            "f1_per_grade": [
+              0.66,
+              0.515,
+              0.111
+            ],
+            "auroc_ge2": 0.6513888888888889
+          },
+          "linear": {
+            "n": 89,
+            "qwk": 0.42784844754479545,
+            "qwk_lo": 0.2339601151153336,
+            "qwk_hi": 0.6041014018611419,
+            "macro_f1": 0.5288579171506,
+            "f1_per_grade": [
+              0.756,
+              0.64,
+              0.19
+            ],
+            "auroc_ge2": 0.5611111111111111
+          },
+          "delta_dom_vs_baseline": -0.439,
+          "delta_linear_vs_baseline": -0.248,
+          "best_qwk": 0.42784844754479545,
+          "signal_real": true,
+          "works_vs_baseline": false,
+          "within_human_band": false
+        },
+        "generic": {
+          "dom": {
+            "n": 89,
+            "qwk": 0.4676454594888527,
+            "qwk_lo": 0.304788846951472,
+            "qwk_hi": 0.6119847038450531,
+            "macro_f1": 0.5643097643097643,
+            "f1_per_grade": [
+              0.582,
+              0.667,
+              0.444
+            ],
+            "auroc_ge2": 0.8847222222222222
+          },
+          "linear": {
+            "n": 89,
+            "qwk": 0.5380622837370242,
+            "qwk_lo": 0.3661947410038152,
+            "qwk_hi": 0.7127715440453083,
+            "macro_f1": 0.6261599945810472,
+            "f1_per_grade": [
+              0.811,
+              0.711,
+              0.357
+            ],
+            "auroc_ge2": 0.7986111111111112
+          },
+          "delta_dom_vs_baseline": -0.185,
+          "delta_linear_vs_baseline": -0.138,
+          "best_qwk": 0.5380622837370242,
+          "signal_real": true,
+          "works_vs_baseline": false,
+          "within_human_band": false
+        },
+        "per_axis": {
+          "dom": {
+            "n": 89,
+            "qwk": 0.6522007404360346,
+            "qwk_lo": 0.5446048687728641,
+            "qwk_hi": 0.7452538744677965,
+            "macro_f1": 0.5829303036620109,
+            "f1_per_grade": [
+              0.831,
+              0.528,
+              0.39
+            ],
+            "auroc_ge2": 0.8888888888888888
+          },
+          "linear": {
+            "n": 89,
+            "qwk": 0.6757920300253891,
+            "qwk_lo": 0.5544974351882481,
+            "qwk_hi": 0.7849635790084154,
+            "macro_f1": 0.6553804307325434,
+            "f1_per_grade": [
+              0.861,
+              0.648,
+              0.457
+            ],
+            "auroc_ge2": 0.8222222222222222
+          },
+          "delta_dom_vs_baseline": 0.0,
+          "delta_linear_vs_baseline": 0.0,
+          "best_qwk": 0.6757920300253891,
+          "signal_real": true,
+          "works_vs_baseline": true,
+          "within_human_band": false
+        }
+      },
+      "verdict": {
+        "holds_modes": [],
+        "best_single_mode": "generic",
+        "baseline_dom_qwk": 0.6522007404360346,
+        "ceiling": 0.7806950747768877
+      }
+    },
+    "PU": {
+      "cells": {
+        "none": {
+          "dom": {
+            "n": 89,
+            "qwk": 0.6113537117903931,
+            "qwk_lo": 0.3707380277108894,
+            "qwk_hi": 0.7728929247615258,
+            "macro_f1": 0.6737709576584257,
+            "f1_per_grade": [
+              0.884,
+              0.471,
+              0.667
+            ],
+            "auroc_ge2": 0.9770114942528736
+          },
+          "linear": {
+            "n": 89,
+            "qwk": 0.7363223385344657,
+            "qwk_lo": 0.5297751023692906,
+            "qwk_hi": 0.9009499573785288,
+            "macro_f1": 0.7396011396011396,
+            "f1_per_grade": [
+              0.954,
+              0.821,
+              0.444
+            ],
+            "auroc_ge2": 0.9827586206896552
+          },
+          "delta_dom_vs_baseline": -0.025,
+          "delta_linear_vs_baseline": 0.007,
+          "best_qwk": 0.7363223385344657,
+          "signal_real": true,
+          "works_vs_baseline": true,
+          "within_human_band": false
+        },
+        "generic": {
+          "dom": {
+            "n": 89,
+            "qwk": 0.591060985797828,
+            "qwk_lo": 0.39414445172123275,
+            "qwk_hi": 0.747459078504335,
+            "macro_f1": 0.6923076923076922,
+            "f1_per_grade": [
+              0.833,
+              0.577,
+              0.667
+            ],
+            "auroc_ge2": 0.9885057471264368
+          },
+          "linear": {
+            "n": 89,
+            "qwk": 0.810772501771793,
+            "qwk_lo": 0.6579199674002179,
+            "qwk_hi": 0.9149596776581068,
+            "macro_f1": 0.7905238571905239,
+            "f1_per_grade": [
+              0.948,
+              0.757,
+              0.667
+            ],
+            "auroc_ge2": 0.9885057471264368
+          },
+          "delta_dom_vs_baseline": -0.045,
+          "delta_linear_vs_baseline": 0.082,
+          "best_qwk": 0.810772501771793,
+          "signal_real": true,
+          "works_vs_baseline": true,
+          "within_human_band": false
+        },
+        "per_axis": {
+          "dom": {
+            "n": 89,
+            "qwk": 0.6361778231987736,
+            "qwk_lo": 0.43324248913666036,
+            "qwk_hi": 0.7838777940943417,
+            "macro_f1": 0.670995670995671,
+            "f1_per_grade": [
+              0.894,
+              0.619,
+              0.5
+            ],
+            "auroc_ge2": 0.9885057471264368
+          },
+          "linear": {
+            "n": 89,
+            "qwk": 0.7288946910356833,
+            "qwk_lo": 0.5313092547844188,
+            "qwk_hi": 0.8767451117725189,
+            "macro_f1": 0.7509087604507453,
+            "f1_per_grade": [
+              0.931,
+              0.75,
+              0.571
+            ],
+            "auroc_ge2": 0.9885057471264368
+          },
+          "delta_dom_vs_baseline": 0.0,
+          "delta_linear_vs_baseline": 0.0,
+          "best_qwk": 0.7288946910356833,
+          "signal_real": true,
+          "works_vs_baseline": true,
+          "within_human_band": false
+        }
+      },
+      "verdict": {
+        "holds_modes": [
+          "none",
+          "generic"
+        ],
+        "best_single_mode": "generic",
+        "baseline_dom_qwk": 0.6361778231987736,
+        "ceiling": 0.9578059071729957
+      }
+    },
+    "ET": {
+      "cells": {
+        "none": {
+          "dom": {
+            "n": 88,
+            "qwk": 0.44573643410852715,
+            "qwk_lo": 0.21519871756094608,
+            "qwk_hi": 0.6252224097635793,
+            "macro_f1": 0.6261563092979127,
+            "f1_per_grade": [
+              0.824,
+              0.797,
+              0.258
+            ],
+            "auroc_ge2": 0.678974358974359
+          },
+          "linear": {
+            "n": 88,
+            "qwk": 0.6507936507936508,
+            "qwk_lo": 0.4919006363709134,
+            "qwk_hi": 0.7779450828996328,
+            "macro_f1": 0.751922260483985,
+            "f1_per_grade": [
+              0.824,
+              0.828,
+              0.605
+            ],
+            "auroc_ge2": 0.963076923076923
+          },
+          "delta_dom_vs_baseline": 0.186,
+          "delta_linear_vs_baseline": 0.221,
+          "best_qwk": 0.6507936507936508,
+          "signal_real": true,
+          "works_vs_baseline": true,
+          "within_human_band": true
+        },
+        "generic": {
+          "dom": {
+            "n": 88,
+            "qwk": 0.4861995753715498,
+            "qwk_lo": 0.3179419935282601,
+            "qwk_hi": 0.6299724895607187,
+            "macro_f1": 0.6616984261844074,
+            "f1_per_grade": [
+              0.857,
+              0.692,
+              0.436
+            ],
+            "auroc_ge2": 0.8482051282051282
+          },
+          "linear": {
+            "n": 88,
+            "qwk": 0.580029368575624,
+            "qwk_lo": 0.41517558630561635,
+            "qwk_hi": 0.7171576819407007,
+            "macro_f1": 0.7355912061794415,
+            "f1_per_grade": [
+              0.933,
+              0.764,
+              0.51
+            ],
+            "auroc_ge2": 0.9528205128205129
+          },
+          "delta_dom_vs_baseline": 0.226,
+          "delta_linear_vs_baseline": 0.15,
+          "best_qwk": 0.580029368575624,
+          "signal_real": true,
+          "works_vs_baseline": true,
+          "within_human_band": true
+        },
+        "per_axis": {
+          "dom": {
+            "n": 88,
+            "qwk": 0.25972660357518385,
+            "qwk_lo": 0.12300683371298414,
+            "qwk_hi": 0.385937978820279,
+            "macro_f1": 0.36744186046511623,
+            "f1_per_grade": [
+              0.6,
+              0.2,
+              0.302
+            ],
+            "auroc_ge2": 0.7887179487179488
+          },
+          "linear": {
+            "n": 88,
+            "qwk": 0.42991755005889287,
+            "qwk_lo": 0.25297113752122236,
+            "qwk_hi": 0.5727087434383202,
+            "macro_f1": 0.631055900621118,
+            "f1_per_grade": [
+              1.0,
+              0.522,
+              0.371
+            ],
+            "auroc_ge2": 0.963076923076923
+          },
+          "delta_dom_vs_baseline": 0.0,
+          "delta_linear_vs_baseline": 0.0,
+          "best_qwk": 0.42991755005889287,
+          "signal_real": true,
+          "works_vs_baseline": true,
+          "within_human_band": true
+        }
+      },
+      "verdict": {
+        "holds_modes": [
+          "none",
+          "generic"
+        ],
+        "best_single_mode": "none",
+        "baseline_dom_qwk": 0.25972660357518385,
+        "ceiling": 0.318658280922432
+      }
+    }
+  }
+}
